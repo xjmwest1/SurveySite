@@ -72,7 +72,7 @@ app.get('/newquestion', function (request, response) {
 });
 
 app.post('/newquestion', function (request, response) {  
-  var questionText = request.body.questionText;
+  var questionText = request.body.question;
   var answers = [];
   
   Object.keys(request.body).forEach(function(ele) {
@@ -84,7 +84,8 @@ app.post('/newquestion', function (request, response) {
   var insertedQuestion;
   
   console.log('we\'re here!!');
-  console.log(request.body);
+  console.log(questionText);
+  console.log(answers);
   
   if(questionText != null) {
   
