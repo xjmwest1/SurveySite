@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+  </head>
+    
+  <body>
+    <div id="container">
+      <div id="topNav" class="flex">
+        <button id="cancel" class="">Cancel</button>
+        <button id="submitQuestion" class="" disabled>Submit</button>
+      </div>
+      
+      <div id="content">
+        
+        <form id="newQuestionForm">
+          <div class="formElement">
+            <div class="formTitle">Question</div>
+            <input type="text" name="question">
+          </div>
+          <div class="formElement">
+            <div class="formTitle">Answer 1</div>
+            <input type="text" name="answer1">
+          </div>
+          <div class="formElement">
+            <div class="formTitle">Answer 2</div>
+            <input type="text" name="answer2">
+          </div>
+          
+        </form>
+        
+        
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    
+    $('input').bind('input', checkInputEvent);
+    
+    function checkInputEvent() {
+      // check if question and at least 2 answers have content
+      // if so, enable submit button
+      
+      var formValues = {
+        question: null,
+        answers: []
+      }
+      $('#newQuestionForm input').each(function() {
+        var name = $(this).attr('name');
+        var value = $(this).val();
+        var submitReady;
+        var answerInputs;
+        
+        if(name.indexOf('answer') > -1) {
+          if(value) {
+            formValues.answers.push(value);
+          }
+        }else if(name.indexOf('question') > -1) {
+          formValues.question = value;
+        }
+      });
+      
+      submitReady = formValues.question && formValues.answers.length >= 2;
+      $('#submitQuestion').prop('disabled', !submitReady);
+      
+      
+      answerInputs = $('input[name*=answer]');
+      // add new answer input if necessary
+      if(answerInputs.last().val()) {
+        var number = answerInputs.length + 1;
+        
+        $('#newQuestionForm').append(
+          '<div class="formElement"> ' +
+            '<div class="formTitle">Answer ' + number + '</div> ' +
+            '<input type="text" name="answer' + number + '"> ' +
+          '</div> ');
+        
+        $('input').off().bind('input', checkInputEvent);
+        
+      }
+      
+      // remove answer input if necessary
+      if(answerInputs.length > 2 && !answerInputs.last().val() && !answerInputs.eq(-2).val()) {
+        answerInputs.last().parent('.formElement').remove();
+      }
+      
+    }
+  
+  </script>
+
+</html>

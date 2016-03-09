@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#container {
+  max-width: 1000px;
+  margin: auto;
+  min-height: 100%;
+  background-color: #D2D0D0;
+}
+
+#topNav {
+  text-align: center;
+}
+
+button {
+  padding: 12 20px;
+}
+
+#content {
+  padding: 60px 40px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Main Screen */
+
+#questionContainer {
+  font-size: 40px;
+  text-align: center;
+}
+
+#answersContainer {
+  font-size: 50px;
+  text-align: center;
+}
+
+.answer {
+  padding: 30px 0px;
+}
+
+.answer {
+  border-bottom: 1px solid #939191;
+}
+
+.answer:first-child {
+  border-top: 1px solid #939191;
+}
+
+.answer:hover {
+  background-color: #DBD9D9;
+  cursor: pointer;
+}
+
+#noQuestionsContainer {
+  padding-top: 35px;
+  font-size: 50px;
+  text-align: center;
+}
+
+
+/* Admin Login */
+
+#loginTitle {
+  font-size: 40px;
+  text-align: center;
+}
+
+#loginForm {
+  text-align: center;
+  margin: 50px 250px;
+  margin-bottom: 30px;
+}
+
+.formElement {
+  margin: 20px 0;
+}
+
+.formElement > input {
+  width: 100%;
+  padding: 5px;
+}
+
+.formTitle {
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+#loginButton {
+  min-width: 200px;
+}
+
+.centerContainer {
+  text-align: center;
+}
+
+#errorContainer {
+  height: 30px;
+  text-align: center;
+  color: red;
+}
+
+
+/* Admin Screen */
+
+#questionsContainer {
+  height: 75%;
+  text-align: center;
+  flex-grow: 2;
+}
+
+#questionsList {
+  font-size: 30px;
+  height: 100%;
+  overflow-y: scroll;
+  border: 1px solid #939191;
+}
+
+.question {
+  padding: 30px 0px;
+}
+
+.question {
+  border-bottom: 1px solid #939191;
+}
+
+.question:last-child {
+  border-bottom: none;
+}
+
+.question:hover {
+  background-color: #DBD9D9;
+  cursor: pointer;
+}
+
+#currentQuestionContainer {
+  padding-left: 40px;
+}
+
+#questionTitle {
+  font-size: 50px;
+}
+
+#answersAndCountsContainer {
+  width: 100%;
+  padding: 40px 15px;
+}
+
+.answerAndCount {
+  font-size: 30px;
+  padding: 5px;
+}
+
+.count {
+  float: right;
+}
+
+/* New Question */
+#newQuestionForm {
+  text-align: center;
+  margin: 50px 150px;
+  margin-bottom: 30px;
+}
+
+#newQuestionForm input[name="question"] {
+  height: 100px;
+}
+
+#newQuestionForm .formElement {
+  font-size: 25px;
+}
+
+
+/* Mobile screens */
+@media all and (max-width: 1000px) {
+  #content {
+    padding: 5px 15px;
+  }
+  
+  /* Admin Login */
+  #loginForm {
+    margin: 0 15px;
+  }
+  
+  /* Admin Screen */
+  #content.flex {
+    flex-direction: column;
+  }
+  
+  #questionsContainer {
+    flex-grow: 0;
+  }
+  
+  #questionsList {
+    height: 70%;
+  }
+  
+  #currentQuestionContainer {
+    padding-left: 0;
+  }
+  
+  #answersAndCountsContainer {
+    padding: 40px 0;
+  }
+  
+}
