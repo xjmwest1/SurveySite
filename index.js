@@ -32,7 +32,7 @@ app.get('/admin/:questionId?', function (request, response) {
         client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
           done();
           if (err) { 
-            console.error(err); response.send("Error " + err); 
+            console.error(err); response.send("Invalid question id"); 
           }else {
             
             var currentQuestion = {};
