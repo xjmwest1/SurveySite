@@ -93,18 +93,16 @@ app.post('/newquestion', function (request, response) {
           response.send("Error inserting question"); 
         });
       } else {
-        
-        
-        
+
         insertedQuestion = questionResults.rows[0];
-        var isLastQuery = false;
         answers.forEach(function(answer, index, array) {
           client.query('INSERT INTO answer_table(title, question_id) values($1, $2)', [answer, insertedQuestion.id], function(err, answerResults) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
-            isLastQuery = (index + 1 === array.length);          
-            if(isLastQuery) {
+            
+            // if last query close connection and redirect to admin page
+            if(index + 1 === array.length) {
               done();
               redirect(insertedQuestion);
             } 
@@ -113,23 +111,16 @@ app.post('/newquestion', function (request, response) {
 
       }
     });
-    ;
   });
   
-  
-  redirect = function(insertedQuestion) {
-    console.log('------------------------');
-    console.log(insertedQuestion);
-    
-    if(insertedQuestion) {
-      response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + insertedQuestion.id + '";</script></html>');
+  redirect = function(question) {  
+    if(question) {
+      response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + question.id + '";</script></html>');
     }else {
       response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin";</script></html>');
     }
   }
   
-  
-    
 });
 
 
