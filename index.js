@@ -52,7 +52,7 @@ app.get('/admin/:questionId?', function (request, response) {
             });
 
             
-            response.render('pages/db', {
+            response.render('pages/admin', {
                 questions: questionRows.rows,
                 currentQuestion: currentQuestion
             }); 
