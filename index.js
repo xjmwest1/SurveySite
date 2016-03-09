@@ -126,10 +126,10 @@ app.post('/newquestion', function (request, response) {
   if(insertedQuestion) {
     //response.send({redirect: '/admin'+ insertedQuestion.id});
     //response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/some_new_path";</script></html>');
-    response.status(200);
-    response.redirect('/admin'+ insertedQuestion.id);
+
+    res.redirect(200, '/admin'+ insertedQuestion.id);
   }else {
-    response.send({redirect: '/admin'});
+    res.redirect(200, '/admin')
   }
     
 });
