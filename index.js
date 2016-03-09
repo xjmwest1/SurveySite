@@ -51,9 +51,14 @@ app.get('/db', function (request, response) {
               questionsArray.push(questions.question);
             });
             
+            console.log('questions---------');
+            console.log(questionRows.rows);
+            console.log('answers---------');
+            console.log(answerRows.rows);
+            console.log('questionsArray---------');
             console.log(questionsArray);
             
-            response.render('pages/db', {questions: questions} ); 
+            response.render('pages/db', {questions: questionsArray} ); 
           }
         });
         
