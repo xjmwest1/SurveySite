@@ -84,7 +84,9 @@ app.post('/newquestion', function (request, response) {
   var insertedQuestion;
   
   console.log('we\'re here!!');
-  console.log(questionText);
+  console.log(request.body);
+  
+  if(questionText != null) {
   
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
@@ -104,6 +106,8 @@ app.post('/newquestion', function (request, response) {
       }
     });
   });
+    
+  }
   
   if(insertedQuestion) {
     response.render('pages/admin/' + insertedQuestion.id); 
