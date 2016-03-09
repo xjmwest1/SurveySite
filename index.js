@@ -19,7 +19,7 @@ app.get('/index', function (request, response) {
 });
 
 
-app.get('/admin/:questionId', function (request, response) {
+app.get('/admin/:questionId?', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
