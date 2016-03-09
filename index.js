@@ -4,6 +4,8 @@ var pg = require('pg');
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
 // views is directory for all template files
@@ -59,14 +61,46 @@ app.get('/admin/:questionId?', function (request, response) {
             }); 
           }
         });
-        
-        
-        
       }
     });
   });
 });
 
+app.get('/newquestion', function (request, response) {
+  response.render('pages/newquestion'); 
+});
+
+app.post('/newquestion', function (request, response) {  
+  var questionText = request.body.questionText;
+  var answers = request.body.answers;
+  var insertedQuestion;
+  
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('INSERT INTO question_table(title, submit_timestamp) values($1, currentTimestamp) RETURNING id', [questionText], function(err, questionResults) {
+      if (err) {
+          console.log(err); response.send("Error inserting question"); 
+      } else {
+        insertedQuestion = questionResults.rows[0];
+        
+        answers.forEach(function(answer) {
+          client.query('INSERT INTO question_table(title, submit_timestamp) values($1, currentTimestamp) RETURNING id', [questionText], function(err, answerResults) {
+            if (err) {
+              console.log(err); response.send("Error inserting answers"); 
+            }
+          });
+        });
+        done();
+      }
+    });
+  });
+  
+  if(insertedQuestion) {
+    response.render('pages/admin/' + insertedQuestion.id); 
+  }else {
+    response.render('pages/admin');
+  }
+    
+});
 
 
 app.listen(app.get('port'), function() {

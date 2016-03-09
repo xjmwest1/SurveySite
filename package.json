@@ -8,10 +8,11 @@
   "author": "John W",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4",
-    "pg": "^4.5.1",
+    "body-parser": "^1.15.0",
     "ejs": "2.3.3",
-    "node": "^0.0.0"
+    "express": "^4.13.4",
+    "node": "^0.0.0",
+    "pg": "^4.5.1"
   },
   "devDependencies": {},
   "description": "",
