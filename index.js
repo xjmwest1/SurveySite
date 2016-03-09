@@ -20,12 +20,38 @@ app.get('/cool', function(request, response) {
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM question_table', function(err, result) {
+    client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('pages/db', {results: result.rows} ); }
+      if (err) { 
+        console.error(err); response.send("Error " + err); 
+      }else {
+        
+        client.query('SELECT * FROM answer_table', function(err, answerRows) {
+          done();
+          if (err) { 
+            console.error(err); response.send("Error " + err); 
+          }else {
+            
+            var questions = {};
+            
+            questionRows.rows.forEach(function(question) {
+              questions[question.id] = question;
+              questions[question.id].answers = [];
+            });
+            
+            answerRows.rows.forEach(function(answer) {
+              if(questions[answer.question_id]) {
+                questions[answer.question_id].answers.push(answer);
+              }
+            });
+            
+            response.render('pages/db', {questions: questions} ); 
+          }
+        });
+        
+        
+        
+      }
     });
   });
 });

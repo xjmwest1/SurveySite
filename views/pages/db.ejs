@@ -12,8 +12,13 @@
 <h2>Database Results</h2>
 
 <ul>
-    <% results.forEach(function(r) { %>
-        <li><%= r.id %> - <%= r.name %></li>
+    <% questions.forEach(function(q) { %>
+        <li><%= q.id %> - <%= q.title %></li>
+        <ul>
+          <% q.answers.forEach(function(a) { %>
+            <li><%= a.id %> - <%= a.title %></li>
+          <% }); %>
+        </ul>
     <% }); %>
 </ul>
 
