@@ -106,6 +106,7 @@ app.post('/newquestion', function (request, response) {
         done();
       }
     });
+    client.end();
   });
     
   }
