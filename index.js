@@ -76,8 +76,9 @@ app.post('/newquestion', function (request, response) {
   var answers = [];
   
   Object.keys(request.body).forEach(function(ele) {
-    if(ele.indexOf('answer') > -1) {
-      answers.push(request.body[ele]);
+    var val = request.body[ele];
+    if(ele.indexOf('answer') > -1 && val.length > 0) {
+      answers.push(val);
     }
   });
   
@@ -98,12 +99,15 @@ app.post('/newquestion', function (request, response) {
         });
       } else {
         insertedQuestion = questionResults.rows[0];
-        //var answerQuery = 'INSERT INTO answer_table(title, question_id) values';
-        answers.forEach(function(answer) {
+        var isLastQuery = false;
+        answers.forEach(function(answer, index, array) {
           client.query('INSERT INTO answer_table(title, question_id) values($1, $2)', [answer, insertedQuestion.id], function(err, answerResults) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
+            isLastQuery = (index + 1 === array.length);
+            if(isLastQuery) done();
+            
           });
         });
 
