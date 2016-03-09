@@ -11,7 +11,10 @@
       
       <div id="content">
         
-        <form action="/newquestion" id="newQuestionForm">
+        <form method="post" action="/newquestion" id="newQuestionForm">
+          <a id="cancel" href="/admin" class="button">Cancel</a>
+          <input id="submitQuestion" type="submit" name="submit" class="button disabledButton">Submit</input>
+          
           <div class="formElement">
             <div class="formTitle">Question</div>
             <input type="text" name="question">
@@ -25,8 +28,7 @@
             <input type="text" name="answer2">
           </div>
           
-          <a id="cancel" href="/admin" class="button">Cancel</a>
-          <input id="submitQuestion" type="submit" name="submit" class="button disabledButton">Submit</input>
+          
         </form>
         
         
