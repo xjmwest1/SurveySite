@@ -17,7 +17,7 @@
 
         <ul id="questionsList">
           <% questions.forEach(function(q) { %>
-            <li class="question"><%= q.title %></li>
+          <li class="question"><a href="/admin/<%= q.id %>"><%= q.title %></a></li>
           <% }); %>
         </ul>
       </div>
@@ -40,19 +40,6 @@
       </div>
       
     </div>
-      
-    <h2>Question List</h2>
-
-    <ul>
-        <% questions.forEach(function(q) { %>
-          <li><%= q.id %> - <%= q.title %></li>
-          <ul>
-            <% q.answers.forEach(function(a) { %>
-              <li><%= a.id %> - <%= a.title %></li>
-            <% }); %>
-          </ul>
-        <% }); %>
-    </ul>
 
   </div>
 
