@@ -45,6 +45,8 @@ app.get('/db', function (request, response) {
               }
             });
             
+            console.log(questions);
+            
             response.render('pages/db', {questions: questions} ); 
           }
         });
