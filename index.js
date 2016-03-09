@@ -19,7 +19,7 @@ app.get('/index', function (request, response) {
 });
 
 
-app.get('/db', function (request, response) {
+app.get('/admin/:questionId', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
@@ -27,40 +27,35 @@ app.get('/db', function (request, response) {
         console.error(err); response.send("Error " + err); 
       }else {
         
-        client.query('SELECT * FROM answer_table', function(err, answerRows) {
+        var questionId = request.params.questionId ? request.params.questionId : questionRows.rows[0].id;
+        
+        client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
           done();
           if (err) { 
             console.error(err); response.send("Error " + err); 
           }else {
             
-            var questions = {};
+            var currentQuestion = {};
+            var questionsMap = {};
             
             questionRows.rows.forEach(function(question) {
-              questions[question.id] = question;
-              questions[question.id].answers = [];
+              questionsMap[question.id] = question;
             });
+            
+            currentQuestion = questionsMap[questionId] ? questionsMap[questionId] : {};
+            currentQuestion.answers = [];
             
             answerRows.rows.forEach(function(answer) {
-              if(questions[answer.question_id]) {
-                questions[answer.question_id].answers.push(answer);
+              if(answer.question_id == currentQuestion.id) {
+                currentQuestion.answers.push(answer);
               }
             });
+
             
-            //convert back to array
-            var questionsArray = [];
-            Object.keys(questions).forEach(function(key) {
-              var obj = questions[key];
-              questionsArray.push(obj);
-            });
-            
-            console.log('questions---------');
-            console.log(questionRows.rows);
-            console.log('answers---------');
-            console.log(answerRows.rows);
-            console.log('questionsArray---------');
-            console.log(questionsArray);
-            
-            response.render('pages/db', {questions: questionsArray} ); 
+            response.render('pages/db', {
+                questions: questionRows.rows,
+                currentQuestion: currentQuestion;
+            }); 
           }
         });
         
