@@ -84,12 +84,6 @@ app.post('/newquestion', function (request, response) {
   
   var insertedQuestion;
   
-  console.log('we\'re here!!');
-  console.log(questionText);
-  console.log(answers);
-  
-  if(questionText != null) {
-  
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
@@ -114,17 +108,13 @@ app.post('/newquestion', function (request, response) {
     });
     ;
   });
-    
-  }
+  
+  console.log('------------------------');
+  console.log(insertedQuestion);
   
   if(insertedQuestion) {
-    //response.send({redirect: '/admin'+ insertedQuestion.id});
-    //response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/some_new_path";</script></html>');
-
-    //response.redirect(200, '/admin'+ );
     response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + insertedQuestion.id + '";</script></html>');
   }else {
-    //response.redirect(200, '/admin')
     response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin";</script></html>');
   }
     
