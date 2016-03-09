@@ -51,6 +51,7 @@ app.get('/admin/:questionId?', function (request, response) {
               }
             });
 
+            console.log(currentQuestion);
             
             response.render('pages/admin', {
                 questions: questionRows.rows,
