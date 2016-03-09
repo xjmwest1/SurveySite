@@ -76,15 +76,18 @@ app.post('/newquestion', function (request, response) {
   var answers = request.body.answers;
   var insertedQuestion;
   
+  console.log('we\'re here!!');
+  console.log(questionText);
+  
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('INSERT INTO question_table(title, submit_timestamp) values($1, currentTimestamp) RETURNING id', [questionText], function(err, questionResults) {
+    client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
           console.log(err); response.send("Error inserting question"); 
       } else {
         insertedQuestion = questionResults.rows[0];
         
         answers.forEach(function(answer) {
-          client.query('INSERT INTO question_table(title, submit_timestamp) values($1, currentTimestamp) RETURNING id', [questionText], function(err, answerResults) {
+          client.query('INSERT INTO answer_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [answer], function(err, answerResults) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
