@@ -77,7 +77,7 @@ app.post('/newquestion', function (request, response) {
   
   Object.keys(request.body).forEach(function(ele) {
     if(ele.indexOf('answer') > -1) {
-      answers.push(ele);
+      answers.push(request.body[ele]);
     }
   });
   
@@ -111,9 +111,9 @@ app.post('/newquestion', function (request, response) {
   }
   
   if(insertedQuestion) {
-    response.render('pages/admin/' + insertedQuestion.id); 
+    response.send({redirect: '/admin'+ insertedQuestion.id});
   }else {
-    response.render('pages/admin');
+    response.send({redirect: '/admin'});
   }
     
 });
