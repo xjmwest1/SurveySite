@@ -73,7 +73,14 @@ app.get('/newquestion', function (request, response) {
 
 app.post('/newquestion', function (request, response) {  
   var questionText = request.body.questionText;
-  var answers = request.body.answers;
+  var answers = [];
+  
+  Object.keys(request.body).forEach(function(ele) {
+    if(ele.indexOf('answer') > -1) {
+      answers.push(ele);
+    }
+  });
+  
   var insertedQuestion;
   
   console.log('we\'re here!!');
