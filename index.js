@@ -92,21 +92,24 @@ app.post('/newquestion', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
-          console.log(err); response.send("Error inserting question"); 
+        return client.rollback_transaction(function () {
+          console.log(err);
+          response.send("Error inserting question"); 
+        }       
       } else {
         insertedQuestion = questionResults.rows[0];
-        
+        //var answerQuery = 'INSERT INTO answer_table(title, question_id) values';
         answers.forEach(function(answer) {
-          client.query('INSERT INTO answer_table(title, question_id) values($1, $2) RETURNING id', [answer, insertedQuestion.id], function(err, answerResults) {
+          client.query('INSERT INTO answer_table(title, question_id) values($1, $2)', [answer, insertedQuestion.id], function(err, answerResults) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
           });
         });
-        done();
+
       }
     });
-    client.end();
+    ;
   });
     
   }
