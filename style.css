@@ -19,8 +19,20 @@ ul {
   text-align: center;
 }
 
-button {
+.button {
   padding: 12 20px;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+  color: initial;
+}
+
+.disabledButton {
+  pointer-events: none;
+  cursor: default;
+  color: grey;
 }
 
 #content {

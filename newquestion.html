@@ -7,8 +7,8 @@
   <body>
     <div id="container">
       <div id="topNav" class="flex">
-        <button id="cancel" class="">Cancel</button>
-        <button id="submitQuestion" class="" disabled>Submit</button>
+        <a id="cancel" href="adminscreen.html" class="button">Cancel</a>
+        <a id="submitQuestion" href="adminscreen.html" class="button disabledButton">Submit</a>
       </div>
       
       <div id="content">
@@ -62,7 +62,7 @@
       });
       
       submitReady = formValues.question && formValues.answers.length >= 2;
-      $('#submitQuestion').prop('disabled', !submitReady);
+      $('#submitQuestion').toggleClass('disabledButton', !submitReady);
       
       
       answerInputs = $('input[name*=answer]');
