@@ -54,7 +54,7 @@ app.get('/admin/:questionId', function (request, response) {
             
             response.render('pages/db', {
                 questions: questionRows.rows,
-                currentQuestion: currentQuestion;
+                currentQuestion: currentQuestion
             }); 
           }
         });
