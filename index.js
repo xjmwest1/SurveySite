@@ -47,8 +47,9 @@ app.get('/db', function (request, response) {
             
             //convert back to array
             var questionsArray = [];
-            Object.keys(questions).forEach(function(question) {
-              questionsArray.push(questions.question);
+            Object.keys(questions).forEach(function(key) {
+              var obj = questions[key];
+              questionsArray.push(obj);
             });
             
             console.log('questions---------');
