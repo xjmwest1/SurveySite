@@ -70,6 +70,10 @@ app.get('/db', function (request, response) {
   });
 });
 
+app.get('/db', function (request, response) {
+  response.render('pages/index'); 
+});
+
 
 app.listen(app.get('port'), function() {
   console.log('SurveySite app is running on port', app.get('port'));

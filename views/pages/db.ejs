@@ -8,7 +8,7 @@
   
   <div id="container">
     <div id="topNav">
-      <a href="mainscreen.html" class="button">Home Page</a>
+      <a href="/index" class="button">Home Page</a>
     </div>
     
     <div id="content" class="flex">
@@ -17,7 +17,7 @@
 
         <ul id="questionsList">
           <% questions.forEach(function(q) { %>
-            <li><%= q.title %></li>
+            <li class="question"><%= q.title %></li>
           <% }); %>
         </ul>
       </div>
