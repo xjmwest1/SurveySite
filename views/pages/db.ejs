@@ -12,7 +12,7 @@
 <h2>Database Results</h2>
 
 <ul>
-    <% questions.forEach(function(q) { %>
+    <% Object.keys(questions).forEach(function(q) { %>
         <li><%= q.id %> - <%= q.title %></li>
         <ul>
           <% q.answers.forEach(function(a) { %>
