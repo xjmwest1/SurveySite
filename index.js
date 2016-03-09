@@ -106,7 +106,12 @@ app.post('/newquestion', function (request, response) {
               console.log(err); response.send("Error inserting answers"); 
             }
             isLastQuery = (index + 1 === array.length);
-            if(isLastQuery) done();
+            
+            console.log(index+1 + ' ' + array.length);
+            
+            if(isLastQuery) {
+              done();
+            }
             
           });
         });
@@ -119,9 +124,9 @@ app.post('/newquestion', function (request, response) {
   }
   
   if(insertedQuestion) {
-    //response.send({redirect: '/admin'+ insertedQuestion.id});
+    response.send({redirect: '/admin'+ insertedQuestion.id});
   }else {
-    //response.send({redirect: '/admin'});
+    response.send({redirect: '/admin'});
   }
     
 });
