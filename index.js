@@ -95,7 +95,7 @@ app.post('/newquestion', function (request, response) {
         return client.rollback_transaction(function () {
           console.log(err);
           response.send("Error inserting question"); 
-        }       
+        });
       } else {
         insertedQuestion = questionResults.rows[0];
         //var answerQuery = 'INSERT INTO answer_table(title, question_id) values';
