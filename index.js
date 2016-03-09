@@ -83,6 +83,7 @@ app.post('/newquestion', function (request, response) {
   });
   
   var insertedQuestion;
+  var redirect;
   
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
@@ -93,8 +94,7 @@ app.post('/newquestion', function (request, response) {
         });
       } else {
         
-        console.log('------------------------');
-        console.log(questionResults.rows);
+        
         
         insertedQuestion = questionResults.rows[0];
         var isLastQuery = false;
@@ -104,7 +104,10 @@ app.post('/newquestion', function (request, response) {
               console.log(err); response.send("Error inserting answers"); 
             }
             isLastQuery = (index + 1 === array.length);          
-            if(isLastQuery) done();
+            if(isLastQuery) {
+              done();
+              redirect(insertedQuestion);
+            } 
           });
         });
 
@@ -114,12 +117,18 @@ app.post('/newquestion', function (request, response) {
   });
   
   
-  
-  if(insertedQuestion) {
-    response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + insertedQuestion.id + '";</script></html>');
-  }else {
-    response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin";</script></html>');
+  redirect = function(insertedQuestion) {
+    console.log('------------------------');
+    console.log(insertedQuestion);
+    
+    if(insertedQuestion) {
+      response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + insertedQuestion.id + '";</script></html>');
+    }else {
+      response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin";</script></html>');
+    }
   }
+  
+  
     
 });
 
