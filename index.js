@@ -45,7 +45,13 @@ app.get('/db', function (request, response) {
               }
             });
             
-            console.log(questions);
+            //convert back to array
+            var questionsArray = [];
+            Object.keys(questions).forEach(function(question) {
+              questionsArray.push(questions.question);
+            });
+            
+            console.log(questionsArray);
             
             response.render('pages/db', {questions: questions} ); 
           }
