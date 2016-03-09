@@ -23,15 +23,20 @@
       </div>
 
       <div id="currentQuestionContainer">
-        <div id="questionTitle">
-          Question 1 is this here? more text bigger title
-        </div>
-        <ul id="answersAndCountsContainer">
-          <ul class="answerAndCount">Answer 1 <span class="count">20 (70%)</span></ul>
-          <ul class="answerAndCount">Answer 2 <span class="count">5 (20%)</span></ul>
-          <ul class="answerAndCount">Answer 3 <span class="count">10 (10%)</span></ul>
-          <ul class="answerAndCount">Answer 4 <span class="count">0 (0%)</span></ul>
-        </ul>
+        <% if(!currentQuestion) { %>
+          <div id="questionTitle">
+            Question does not exist
+          </div>
+        <% }else { %>
+          <div id="questionTitle">
+            currentQuestion.title
+          </div>
+          <ul id="answersAndCountsContainer">
+            <% currentQuestion.answers.forEach(function(a) { %>
+              <li class="answerAndCount"><%= a.title %></li>
+            <% }); %>
+          </ul>
+        <% } %>
       </div>
       
     </div>

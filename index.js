@@ -14,6 +14,10 @@ app.get('/', function (request, response) {
   response.render('pages/index'); 
 });
 
+app.get('/index', function (request, response) {
+  response.render('pages/index'); 
+});
+
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
