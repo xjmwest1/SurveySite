@@ -10,13 +10,10 @@ app.use(express.static(__dirname));
 //app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/mainscreen.html');
+app.get('/', function (request, response) {
+  response.render('pages/index'); 
 });
 
-app.get('/cool', function(request, response) {
-  response.send(cool());
-});
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -70,9 +67,6 @@ app.get('/db', function (request, response) {
   });
 });
 
-app.get('/db', function (request, response) {
-  response.render('pages/index'); 
-});
 
 
 app.listen(app.get('port'), function() {
