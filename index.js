@@ -121,9 +121,11 @@ app.post('/newquestion', function (request, response) {
     //response.send({redirect: '/admin'+ insertedQuestion.id});
     //response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/some_new_path";</script></html>');
 
-    response.redirect(200, '/admin'+ insertedQuestion.id);
+    //response.redirect(200, '/admin'+ );
+    response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + insertedQuestion.id + '";</script></html>');
   }else {
-    response.redirect(200, '/admin')
+    //response.redirect(200, '/admin')
+    response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin";</script></html>');
   }
     
 });
