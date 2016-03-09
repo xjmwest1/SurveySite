@@ -105,14 +105,8 @@ app.post('/newquestion', function (request, response) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
-            isLastQuery = (index + 1 === array.length);
-            
-            console.log(index+1 + ' ' + array.length);
-            
-            if(isLastQuery) {
-              done();
-            }
-            
+            isLastQuery = (index + 1 === array.length);          
+            if(isLastQuery) done();
           });
         });
 
@@ -127,9 +121,9 @@ app.post('/newquestion', function (request, response) {
     //response.send({redirect: '/admin'+ insertedQuestion.id});
     //response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/some_new_path";</script></html>');
 
-    res.redirect(200, '/admin'+ insertedQuestion.id);
+    response.redirect(200, '/admin'+ insertedQuestion.id);
   }else {
-    res.redirect(200, '/admin')
+    response.redirect(200, '/admin')
   }
     
 });
