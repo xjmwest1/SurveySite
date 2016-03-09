@@ -92,6 +92,10 @@ app.post('/newquestion', function (request, response) {
           response.send("Error inserting question"); 
         });
       } else {
+        
+        console.log('------------------------');
+        console.log(questionResults.rows);
+        
         insertedQuestion = questionResults.rows[0];
         var isLastQuery = false;
         answers.forEach(function(answer, index, array) {
@@ -109,8 +113,7 @@ app.post('/newquestion', function (request, response) {
     ;
   });
   
-  console.log('------------------------');
-  console.log(insertedQuestion);
+  
   
   if(insertedQuestion) {
     response.status(200).send('<html><body></body><script type="text/javascript">window.location.href="/admin/' + insertedQuestion.id + '";</script></html>');
