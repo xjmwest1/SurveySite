@@ -43,6 +43,9 @@ app.get('/index', getRandomQuestion, function(request, response) {
 function getRandomQuestion(request, response, next) {
   var answeredQuestionIds = request.session.answeredQuestionIds || [];
   var unansweredQuestionIds = [];
+  
+  console.log('answeredQuestionIds-------------------------');
+  console.log(answeredQuestionIds);
 
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
