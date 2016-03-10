@@ -18,6 +18,7 @@ app.use(cookieSession({
 app.set('view engine', 'ejs');
 
 // CHECK ADMIN MIDDLEWARE
+// ( used for /admin & /newquestion )
 
 function checkAdmin(request, response, next) {
   if (!request.session.isAdmin) {
@@ -29,24 +30,58 @@ function checkAdmin(request, response, next) {
 
 
 
-
 // INDEX PAGE
 
-app.get('/', function (request, response) {
-  response.render('pages/index'); 
+app.get('/', function(request, response) {
+  var question = getRandomQuestion(request.session.answeredQuestionIds || []);
+  
+  response.render('pages/index', {
+    question: question;
+  });
 });
 
-app.get('/index', function (request, response) {
-  response.render('pages/index'); 
+app.get('/index', function(request, response) {
+  var question = getRandomQuestion(request.session.answeredQuestionIds || []);
+  
+  response.render('pages/index', {
+    question: question;
+  });
 });
+
+function getRandomQuestion(answeredQuestionIds) {
+  var unansweredQuestionIds = [];
+  var question;
+
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM question_table', function(err, questionRows) {
+      done();
+      if (err) { 
+        console.error(err); response.send("Error " + err); 
+      }else {
+        
+        // get unanswered question ids
+        questionRows.rows.forEach(function(q) {
+          if($.inArray(q.id, answeredQuestionIds) == -1) {
+            unansweredQuestionIds.push(q);
+          }
+        });
+        
+        // pick random unanswered question
+        var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
+        question = getQuestionWithAnswers(questionId);
+        return question;
+      }
+    });
+  });
+}
 
 // LOGIN PAGE
 
-app.get('/login', function (request, response) {
+app.get('/login', function(request, response) {
   response.render('pages/login'); 
 });
 
-app.post('/login', function (request, response) {
+app.post('/login', function(request, response) {
   var post = request.body;
   if (post.user === 'john' && post.pass === 'abc123') {
     request.session.isAdmin = true;
@@ -60,7 +95,7 @@ app.post('/login', function (request, response) {
 
 // LOGOUT PAGE
 
-app.get('/logout', function (request, response) {
+app.get('/logout', function(request, response) {
   delete request.session.isAdmin;
   response.redirect('/index');
 });   
@@ -68,7 +103,7 @@ app.get('/logout', function (request, response) {
 
 // ADMIN PAGE
 
-app.get('/admin/:questionId?', checkAdmin, function (request, response) {
+app.get('/admin/:questionId?', checkAdmin, function(request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
@@ -124,11 +159,11 @@ app.get('/admin/:questionId?', checkAdmin, function (request, response) {
 
 // NEW QUESTION PAGE
 
-app.get('/newquestion', checkAdmin, function (request, response) {
+app.get('/newquestion', checkAdmin, function(request, response) {
   response.render('pages/newquestion'); 
 });
 
-app.post('/newquestion', checkAdmin, function (request, response) {  
+app.post('/newquestion', checkAdmin, function(request, response) {  
   var questionText = request.body.question;
   var answers = [];
   
@@ -145,7 +180,7 @@ app.post('/newquestion', checkAdmin, function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
-        return client.rollback_transaction(function () {
+        return client.rollback_transaction(function() {
           console.log(err);
           response.send("Error inserting question"); 
         });
@@ -180,6 +215,38 @@ app.post('/newquestion', checkAdmin, function (request, response) {
   
 });
 
+
+function getQuestionWithAnswers(id) {
+  var question;
+  
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM question_table WHERE id=' + id, function(err, questionRows) {
+      done();
+      if (err) { 
+        console.error(err); response.send("Error " + err); 
+      }else {
+        
+        if(questionRows.rows.length <= 0) return null;
+        
+        question = questionRows.rows[0];
+        
+        client.query('SELECT * FROM answer_table WHERE question_id=' + id, function(err, answerRows) {
+            done();
+            if (err) { 
+              console.error(err); response.send("Invalid question id"); 
+            }else {
+              question.answers = [];
+              answerRows.rows.forEach(function(answer) {
+                question.answers.push(answer);
+              });
+              done();
+              return question;
+            }
+          });
+      }
+    });
+  });
+}
 
 
 //app.use('/', router);
