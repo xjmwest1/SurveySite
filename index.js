@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var app = express();
 var pg = require('pg');
+var db = require('./models');
 
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1);
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 
 // for local, otherwise use process.env.DATABASE_URL
 var connectionString = 'postgres://lieggxxxnnxmip:d8_rykzOflG4fi6tEj64ynH-At@ec2-54-83-56-31.compute-1.amazonaws.com:5432/dfccnd1s5eo59t';
+
 
 // CHECK ADMIN MIDDLEWARE
 // ( used for /admin & /newquestion )
@@ -267,11 +269,12 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 });
 
 
-//app.use('/', router);
-
-app.listen(app.get('port'), function() {
-  console.log('SurveySite app is running on port', app.get('port'));
+db.sequelize.sync().then(function() {
+  http.createServer(app).listen(app.get('port'), function(){
+    console.log('Express server listening on port ' + app.get('port'));
+  });  
 });
+
 
 
 
