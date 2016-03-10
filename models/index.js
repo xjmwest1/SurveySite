@@ -8,7 +8,9 @@ if (!global.hasOwnProperty('db')) {
       logging: false,
       dialectOptions: {
         ssl: true /* for SSL config since Heroku gives you this out of the box */
-      }
+      },
+      dialect: 'postgres',
+      omitNull: true
     });
   } else {
     // the application is executed on the local machine ... use mysql
