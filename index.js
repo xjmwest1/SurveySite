@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var app = express();
-var pg = require('pg');
+var pg = require('pg').native;
 
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1);
@@ -154,9 +154,7 @@ app.get('/logout', function(request, response) {
 
 // ADMIN PAGE
 
-app.get('/admin/:questionId?', checkAdmin, function(request, response) {
-  console.log(connectionString);
-  
+app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
   pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();

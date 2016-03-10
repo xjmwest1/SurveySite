@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 ul {
@@ -12,7 +14,7 @@ ul {
   max-width: 1000px;
   margin: auto;
   min-height: 100%;
-  background-color: #D2D0D0;
+  background-color: white;
 }
 
 #topNav {
@@ -20,13 +22,14 @@ ul {
 }
 
 .button {
-  padding: 12px 20px;
+  padding: 24px 100px;
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
 
   text-decoration: none;
   color: initial;
+  font-size: 150%;
 }
 
 .disabledButton {
@@ -47,17 +50,20 @@ ul {
 /* Main Screen */
 
 #questionContainer {
-  font-size: 40px;
+  padding-top: 50px;
+  font-size: 300%;
   text-align: center;
 }
 
 #answersContainer {
-  font-size: 50px;
+  
+  font-size: 250%;
   text-align: center;
 }
 
 .answer {
-  padding: 30px 0px;
+  margin: 0px 0px;
+  height: 120px;
 }
 
 .answer {
@@ -69,7 +75,17 @@ ul {
 }
 
 .answer:hover {
-  background-color: #DBD9D9;
+  background-color: #E5F4F8;
+  cursor: pointer;
+}
+
+.answer > button {
+  width: 100%;
+  height: 100%;
+  background:none!important;
+  border:none; 
+  padding:0!important;
+  font: inherit;
   cursor: pointer;
 }
 
@@ -83,7 +99,8 @@ ul {
 /* Admin Login */
 
 #loginTitle {
-  font-size: 40px;
+  padding-top: 50px;
+  font-size: 300%;
   text-align: center;
 }
 
@@ -94,17 +111,24 @@ ul {
 }
 
 .formElement {
-  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
 }
 
 .formElement > input {
-  width: 100%;
   padding: 5px;
+  width: 100%;
+}
+
+.formElement > input:focus {
+  background-color: #E5F4F8;
 }
 
 .formTitle {
   text-align: left;
   padding-bottom: 5px;
+  font-size: 150%;
 }
 
 #loginButton {
@@ -119,20 +143,22 @@ ul {
   height: 30px;
   text-align: center;
   color: red;
+  font-size: 10px;
+  font-size: 2vw;
 }
 
 
 /* Admin Screen */
 
 #questionsContainer {
-  height: 75%;
+  height: 65%;
   text-align: center;
-  flex-grow: 2;
 }
 
 #questionsList {
-  font-size: 30px;
+  font-size: 200%;
   height: 100%;
+  max-width: 100%;
   overflow-y: scroll;
   border: 1px solid #939191;
 }
@@ -150,7 +176,7 @@ ul {
 }
 
 .question:hover {
-  background-color: #DBD9D9;
+  background-color: #E5F4F8;
   cursor: pointer;
 }
 
@@ -168,7 +194,7 @@ ul {
 }
 
 .answerAndCount {
-  font-size: 30px;
+  font-size: 325%;
   padding: 5px;
 }
 
@@ -210,6 +236,7 @@ ul {
   
   #questionsContainer {
     flex-grow: 0;
+    max-height: 50%;
   }
   
   #questionsList {
@@ -224,4 +251,34 @@ ul {
     padding: 40px 0;
   }
   
+}
+
+@media (min-width: 858px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 780px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 702px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 724px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 623px) {
+    html {
+        font-size: 8px;
+    }
 }

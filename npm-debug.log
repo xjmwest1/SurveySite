@@ -1,0 +1,1673 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'i',
+1 verbose cli   'pg-native' ]
+2 info using npm@2.14.20
+3 info using node@v4.4.0
+4 verbose install initial load of C:\Users\John\Desktop\SurveySite\package.json
+5 warn package.json surveysite@1.0.0 No description
+6 warn package.json surveysite@1.0.0 No repository field.
+7 warn package.json surveysite@1.0.0 No README data
+8 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\body-parser\package.json
+9 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\cookie-parser\package.json
+10 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\cookie-session\package.json
+11 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\ejs\package.json
+12 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\express\package.json
+13 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\jquery\package.json
+14 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\jquery-mobile\package.json
+15 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\node\package.json
+16 verbose installManyTop reading scoped package data from C:\Users\John\Desktop\SurveySite\node_modules\pg\package.json
+17 info package.json node@0.0.0 No description
+18 info package.json node@0.0.0 No repository field.
+19 info package.json node@0.0.0 No README data
+20 info package.json node@0.0.0 No license field.
+21 info package.json jquery-mobile@1.4.1 No license field.
+22 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\package.json
+23 silly cache add args [ 'pg-native', null ]
+24 verbose cache add spec pg-native
+25 silly cache add parsed spec Result {
+25 silly cache add   raw: 'pg-native',
+25 silly cache add   scope: null,
+25 silly cache add   name: 'pg-native',
+25 silly cache add   rawSpec: '',
+25 silly cache add   spec: 'latest',
+25 silly cache add   type: 'tag' }
+26 silly addNamed pg-native@latest
+27 verbose addNamed "latest" is being treated as a dist-tag for pg-native
+28 info addNameTag [ 'pg-native', 'latest' ]
+29 silly mapToRegistry name pg-native
+30 silly mapToRegistry using default registry
+31 silly mapToRegistry registry https://registry.npmjs.org/
+32 silly mapToRegistry uri https://registry.npmjs.org/pg-native
+33 verbose addNameTag registry:https://registry.npmjs.org/pg-native not in flight; fetching
+34 verbose request uri https://registry.npmjs.org/pg-native
+35 verbose request no auth needed
+36 info attempt registry request try #1 at 3:58:25 PM
+37 verbose request id 2cee32f50d1ed19b
+38 verbose etag "3VIP3RBVC5O70N6TWDKB0QUPF"
+39 http request GET https://registry.npmjs.org/pg-native
+40 http 304 https://registry.npmjs.org/pg-native
+41 verbose headers { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   etag: '"3VIP3RBVC5O70N6TWDKB0QUPF"',
+41 verbose headers   age: '0',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-atl6233-ATL',
+41 verbose headers   'x-cache': 'HIT',
+41 verbose headers   'x-cache-hits': '1',
+41 verbose headers   'x-timer': 'S1457643506.036992,VS0,VE90',
+41 verbose headers   vary: 'Accept' }
+42 silly get cb [ 304,
+42 silly get   { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+42 silly get     via: '1.1 varnish',
+42 silly get     'cache-control': 'max-age=300',
+42 silly get     etag: '"3VIP3RBVC5O70N6TWDKB0QUPF"',
+42 silly get     age: '0',
+42 silly get     connection: 'keep-alive',
+42 silly get     'x-served-by': 'cache-atl6233-ATL',
+42 silly get     'x-cache': 'HIT',
+42 silly get     'x-cache-hits': '1',
+42 silly get     'x-timer': 'S1457643506.036992,VS0,VE90',
+42 silly get     vary: 'Accept' } ]
+43 verbose etag https://registry.npmjs.org/pg-native from cache
+44 verbose get saving pg-native to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\pg-native\.cache.json
+45 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+46 silly addNameTag next cb for pg-native with tag latest
+47 silly addNamed pg-native@1.10.0
+48 verbose addNamed "1.10.0" is a plain semver version for pg-native
+49 silly cache afterAdd pg-native@1.10.0
+50 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\pg-native\1.10.0\package\package.json not in flight; writing
+51 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+52 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\pg-native\1.10.0\package\package.json written
+53 silly install resolved [ { name: 'pg-native',
+53 silly install resolved     version: '1.10.0',
+53 silly install resolved     description: 'A slightly nicer interface to Postgres over node-libpq',
+53 silly install resolved     main: 'index.js',
+53 silly install resolved     scripts: { test: 'mocha' },
+53 silly install resolved     repository:
+53 silly install resolved      { type: 'git',
+53 silly install resolved        url: 'git://github.com/brianc/node-pg-native.git' },
+53 silly install resolved     keywords: [ 'postgres', 'pg', 'libpq' ],
+53 silly install resolved     author: { name: 'Brian M. Carlson' },
+53 silly install resolved     license: 'MIT',
+53 silly install resolved     bugs: { url: 'https://github.com/brianc/node-pg-native/issues' },
+53 silly install resolved     homepage: 'https://github.com/brianc/node-pg-native',
+53 silly install resolved     dependencies:
+53 silly install resolved      { libpq: '^1.7.0',
+53 silly install resolved        'pg-types': '1.6.0',
+53 silly install resolved        'readable-stream': '1.0.31' },
+53 silly install resolved     devDependencies:
+53 silly install resolved      { 'generic-pool': '^2.1.1',
+53 silly install resolved        async: '^0.9.0',
+53 silly install resolved        'concat-stream': '^1.4.6',
+53 silly install resolved        lodash: '^2.4.1',
+53 silly install resolved        mocha: '^1.21.4',
+53 silly install resolved        okay: '^0.3.0',
+53 silly install resolved        pg: '*',
+53 silly install resolved        semver: '^4.1.0' },
+53 silly install resolved     gitHead: '8c60a074739aa2ed26e6d83e8dbd965ba0f2c953',
+53 silly install resolved     _id: 'pg-native@1.10.0',
+53 silly install resolved     _shasum: 'abe299214afa2be51db5f5104e14770c738230fd',
+53 silly install resolved     _from: 'pg-native@latest',
+53 silly install resolved     _npmVersion: '3.3.12',
+53 silly install resolved     _nodeVersion: '5.1.0',
+53 silly install resolved     _npmUser: { name: 'brianc', email: 'brian.m.carlson@gmail.com' },
+53 silly install resolved     maintainers: [ [Object] ],
+53 silly install resolved     dist:
+53 silly install resolved      { shasum: 'abe299214afa2be51db5f5104e14770c738230fd',
+53 silly install resolved        tarball: 'http://registry.npmjs.org/pg-native/-/pg-native-1.10.0.tgz' },
+53 silly install resolved     directories: {},
+53 silly install resolved     _resolved: 'https://registry.npmjs.org/pg-native/-/pg-native-1.10.0.tgz',
+53 silly install resolved     readme: 'ERROR: No README data found!' } ]
+54 info install pg-native@1.10.0 into C:\Users\John\Desktop\SurveySite
+55 info installOne pg-native@1.10.0
+56 verbose installOne of pg-native to C:\Users\John\Desktop\SurveySite not in flight; installing
+57 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+58 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\pg-native-78707822a8a5766d.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+59 silly install write writing pg-native 1.10.0 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+60 verbose unbuild node_modules\pg-native
+61 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native is being purged from base C:\Users\John\Desktop\SurveySite
+62 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+63 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\pg-native\1.10.0\package.tgz
+64 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+65 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native is being purged
+66 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+67 silly gunzTarPerm modes [ '777', '666' ]
+68 silly gunzTarPerm extractEntry package.json
+69 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+70 silly gunzTarPerm extractEntry .npmignore
+71 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+72 silly gunzTarPerm extractEntry README.md
+73 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+74 silly gunzTarPerm extractEntry index.js
+75 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+76 silly gunzTarPerm extractEntry bench/index.js
+77 silly gunzTarPerm modified mode [ 'bench/index.js', 420, 438 ]
+78 silly gunzTarPerm extractEntry bench/leaks.js
+79 silly gunzTarPerm modified mode [ 'bench/leaks.js', 420, 438 ]
+80 silly gunzTarPerm extractEntry .travis.yml
+81 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+82 silly gunzTarPerm extractEntry Makefile
+83 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+84 silly gunzTarPerm extractEntry lib/copy-stream.js
+85 silly gunzTarPerm modified mode [ 'lib/copy-stream.js', 420, 438 ]
+86 silly gunzTarPerm extractEntry test/array-mode.js
+87 silly gunzTarPerm modified mode [ 'test/array-mode.js', 420, 438 ]
+88 silly gunzTarPerm extractEntry test/custom-types.js
+89 silly gunzTarPerm modified mode [ 'test/custom-types.js', 420, 438 ]
+90 silly gunzTarPerm extractEntry test/domains.js
+91 silly gunzTarPerm modified mode [ 'test/domains.js', 420, 438 ]
+92 silly gunzTarPerm extractEntry test/huge-query.js
+93 silly gunzTarPerm modified mode [ 'test/huge-query.js', 420, 438 ]
+94 silly gunzTarPerm extractEntry test/copy-to.js
+95 silly gunzTarPerm modified mode [ 'test/copy-to.js', 420, 438 ]
+96 silly gunzTarPerm extractEntry test/async-workflow.js
+97 silly gunzTarPerm modified mode [ 'test/async-workflow.js', 420, 438 ]
+98 silly gunzTarPerm extractEntry test/many-connections.js
+99 silly gunzTarPerm modified mode [ 'test/many-connections.js', 420, 438 ]
+100 silly gunzTarPerm extractEntry test/many-errors.js
+101 silly gunzTarPerm modified mode [ 'test/many-errors.js', 420, 438 ]
+102 silly gunzTarPerm extractEntry test/query-sync.js
+103 silly gunzTarPerm modified mode [ 'test/query-sync.js', 420, 438 ]
+104 silly gunzTarPerm extractEntry test/multiple-queries.js
+105 silly gunzTarPerm modified mode [ 'test/multiple-queries.js', 420, 438 ]
+106 silly gunzTarPerm extractEntry test/copy-from.js
+107 silly gunzTarPerm modified mode [ 'test/copy-from.js', 420, 438 ]
+108 silly gunzTarPerm extractEntry test/notify.js
+109 silly gunzTarPerm modified mode [ 'test/notify.js', 420, 438 ]
+110 silly gunzTarPerm extractEntry test/connection.js
+111 silly gunzTarPerm modified mode [ 'test/connection.js', 420, 438 ]
+112 silly gunzTarPerm extractEntry test/prepare.js
+113 silly gunzTarPerm modified mode [ 'test/prepare.js', 420, 438 ]
+114 silly gunzTarPerm extractEntry test/cancel.js
+115 silly gunzTarPerm modified mode [ 'test/cancel.js', 420, 438 ]
+116 silly gunzTarPerm extractEntry test/query-async.js
+117 silly gunzTarPerm modified mode [ 'test/query-async.js', 420, 438 ]
+118 silly gunzTarPerm extractEntry test/index.js
+119 silly gunzTarPerm modified mode [ 'test/index.js', 420, 438 ]
+120 silly gunzTarPerm extractEntry test/version.js
+121 silly gunzTarPerm modified mode [ 'test/version.js', 420, 438 ]
+122 silly gunzTarPerm extractEntry test/load.js
+123 silly gunzTarPerm modified mode [ 'test/load.js', 420, 438 ]
+124 silly gunzTarPerm extractEntry test/mocha.opts
+125 silly gunzTarPerm modified mode [ 'test/mocha.opts', 420, 438 ]
+126 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\package.json
+127 info preinstall pg-native@1.10.0
+128 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\package.json
+129 silly prepareForInstallMany adding libpq@^1.7.0 from pg-native dependencies
+130 silly prepareForInstallMany adding pg-types@1.6.0 from pg-native dependencies
+131 silly prepareForInstallMany adding readable-stream@1.0.31 from pg-native dependencies
+132 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\package.json
+133 silly cache add args [ 'readable-stream@1.0.31', null ]
+134 verbose cache add spec readable-stream@1.0.31
+135 silly cache add parsed spec Result {
+135 silly cache add   raw: 'readable-stream@1.0.31',
+135 silly cache add   scope: null,
+135 silly cache add   name: 'readable-stream',
+135 silly cache add   rawSpec: '1.0.31',
+135 silly cache add   spec: '1.0.31',
+135 silly cache add   type: 'version' }
+136 silly addNamed readable-stream@1.0.31
+137 verbose addNamed "1.0.31" is a plain semver version for readable-stream
+138 silly mapToRegistry name readable-stream
+139 silly mapToRegistry using default registry
+140 silly mapToRegistry registry https://registry.npmjs.org/
+141 silly mapToRegistry uri https://registry.npmjs.org/readable-stream
+142 verbose addNameVersion registry:https://registry.npmjs.org/readable-stream not in flight; fetching
+143 silly cache add args [ 'libpq@^1.7.0', null ]
+144 verbose cache add spec libpq@^1.7.0
+145 silly cache add parsed spec Result {
+145 silly cache add   raw: 'libpq@^1.7.0',
+145 silly cache add   scope: null,
+145 silly cache add   name: 'libpq',
+145 silly cache add   rawSpec: '^1.7.0',
+145 silly cache add   spec: '>=1.7.0 <2.0.0',
+145 silly cache add   type: 'range' }
+146 silly addNamed libpq@>=1.7.0 <2.0.0
+147 verbose addNamed ">=1.7.0 <2.0.0" is a valid semver range for libpq
+148 silly addNameRange { name: 'libpq', range: '>=1.7.0 <2.0.0', hasData: false }
+149 silly mapToRegistry name libpq
+150 silly mapToRegistry using default registry
+151 silly mapToRegistry registry https://registry.npmjs.org/
+152 silly mapToRegistry uri https://registry.npmjs.org/libpq
+153 verbose addNameRange registry:https://registry.npmjs.org/libpq not in flight; fetching
+154 silly cache add args [ 'pg-types@1.6.0', null ]
+155 verbose cache add spec pg-types@1.6.0
+156 silly cache add parsed spec Result {
+156 silly cache add   raw: 'pg-types@1.6.0',
+156 silly cache add   scope: null,
+156 silly cache add   name: 'pg-types',
+156 silly cache add   rawSpec: '1.6.0',
+156 silly cache add   spec: '1.6.0',
+156 silly cache add   type: 'version' }
+157 silly addNamed pg-types@1.6.0
+158 verbose addNamed "1.6.0" is a plain semver version for pg-types
+159 silly mapToRegistry name pg-types
+160 silly mapToRegistry using default registry
+161 silly mapToRegistry registry https://registry.npmjs.org/
+162 silly mapToRegistry uri https://registry.npmjs.org/pg-types
+163 verbose addNameVersion registry:https://registry.npmjs.org/pg-types not in flight; fetching
+164 verbose request uri https://registry.npmjs.org/readable-stream
+165 verbose request no auth needed
+166 info attempt registry request try #1 at 3:58:26 PM
+167 verbose etag "51GKWVCJHJS9U25ZEHAPPTUGD"
+168 http request GET https://registry.npmjs.org/readable-stream
+169 verbose request uri https://registry.npmjs.org/pg-types
+170 verbose request no auth needed
+171 info attempt registry request try #1 at 3:58:26 PM
+172 verbose etag "3SLWN60AAS73552S1ATZBWCW0"
+173 http request GET https://registry.npmjs.org/pg-types
+174 verbose request uri https://registry.npmjs.org/libpq
+175 verbose request no auth needed
+176 info attempt registry request try #1 at 3:58:26 PM
+177 verbose etag "RF7FUNA93010V2RHB233URMW"
+178 http request GET https://registry.npmjs.org/libpq
+179 http 304 https://registry.npmjs.org/readable-stream
+180 verbose headers { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+180 verbose headers   via: '1.1 varnish',
+180 verbose headers   'cache-control': 'max-age=300',
+180 verbose headers   etag: '"51GKWVCJHJS9U25ZEHAPPTUGD"',
+180 verbose headers   age: '153',
+180 verbose headers   connection: 'keep-alive',
+180 verbose headers   'x-served-by': 'cache-atl6220-ATL',
+180 verbose headers   'x-cache': 'HIT',
+180 verbose headers   'x-cache-hits': '26',
+180 verbose headers   'x-timer': 'S1457643506.576612,VS0,VE0',
+180 verbose headers   vary: 'Accept' }
+181 silly get cb [ 304,
+181 silly get   { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+181 silly get     via: '1.1 varnish',
+181 silly get     'cache-control': 'max-age=300',
+181 silly get     etag: '"51GKWVCJHJS9U25ZEHAPPTUGD"',
+181 silly get     age: '153',
+181 silly get     connection: 'keep-alive',
+181 silly get     'x-served-by': 'cache-atl6220-ATL',
+181 silly get     'x-cache': 'HIT',
+181 silly get     'x-cache-hits': '26',
+181 silly get     'x-timer': 'S1457643506.576612,VS0,VE0',
+181 silly get     vary: 'Accept' } ]
+182 verbose etag https://registry.npmjs.org/readable-stream from cache
+183 verbose get saving readable-stream to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\readable-stream\.cache.json
+184 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+185 silly cache afterAdd readable-stream@1.0.31
+186 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\readable-stream\1.0.31\package\package.json not in flight; writing
+187 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+188 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\readable-stream\1.0.31\package\package.json written
+189 http 304 https://registry.npmjs.org/pg-types
+190 verbose headers { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+190 verbose headers   via: '1.1 varnish',
+190 verbose headers   'cache-control': 'max-age=300',
+190 verbose headers   etag: '"3SLWN60AAS73552S1ATZBWCW0"',
+190 verbose headers   age: '0',
+190 verbose headers   connection: 'keep-alive',
+190 verbose headers   'x-served-by': 'cache-atl6237-ATL',
+190 verbose headers   'x-cache': 'HIT',
+190 verbose headers   'x-cache-hits': '1',
+190 verbose headers   'x-timer': 'S1457643506.582510,VS0,VE32',
+190 verbose headers   vary: 'Accept' }
+191 silly get cb [ 304,
+191 silly get   { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+191 silly get     via: '1.1 varnish',
+191 silly get     'cache-control': 'max-age=300',
+191 silly get     etag: '"3SLWN60AAS73552S1ATZBWCW0"',
+191 silly get     age: '0',
+191 silly get     connection: 'keep-alive',
+191 silly get     'x-served-by': 'cache-atl6237-ATL',
+191 silly get     'x-cache': 'HIT',
+191 silly get     'x-cache-hits': '1',
+191 silly get     'x-timer': 'S1457643506.582510,VS0,VE32',
+191 silly get     vary: 'Accept' } ]
+192 verbose etag https://registry.npmjs.org/pg-types from cache
+193 verbose get saving pg-types to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\pg-types\.cache.json
+194 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+195 silly cache afterAdd pg-types@1.6.0
+196 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\pg-types\1.6.0\package\package.json not in flight; writing
+197 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+198 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\pg-types\1.6.0\package\package.json written
+199 http 304 https://registry.npmjs.org/libpq
+200 verbose headers { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+200 verbose headers   via: '1.1 varnish',
+200 verbose headers   'cache-control': 'max-age=300',
+200 verbose headers   etag: '"RF7FUNA93010V2RHB233URMW"',
+200 verbose headers   age: '0',
+200 verbose headers   connection: 'keep-alive',
+200 verbose headers   'x-served-by': 'cache-atl6245-ATL',
+200 verbose headers   'x-cache': 'HIT',
+200 verbose headers   'x-cache-hits': '1',
+200 verbose headers   'x-timer': 'S1457643506.582346,VS0,VE330',
+200 verbose headers   vary: 'Accept' }
+201 silly get cb [ 304,
+201 silly get   { date: 'Thu, 10 Mar 2016 20:58:26 GMT',
+201 silly get     via: '1.1 varnish',
+201 silly get     'cache-control': 'max-age=300',
+201 silly get     etag: '"RF7FUNA93010V2RHB233URMW"',
+201 silly get     age: '0',
+201 silly get     connection: 'keep-alive',
+201 silly get     'x-served-by': 'cache-atl6245-ATL',
+201 silly get     'x-cache': 'HIT',
+201 silly get     'x-cache-hits': '1',
+201 silly get     'x-timer': 'S1457643506.582346,VS0,VE330',
+201 silly get     vary: 'Accept' } ]
+202 verbose etag https://registry.npmjs.org/libpq from cache
+203 verbose get saving libpq to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\libpq\.cache.json
+204 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+205 silly addNameRange number 2 { name: 'libpq', range: '>=1.7.0 <2.0.0', hasData: true }
+206 silly addNameRange versions [ 'libpq',
+206 silly addNameRange   [ '0.2.0',
+206 silly addNameRange     '0.2.1',
+206 silly addNameRange     '0.2.2',
+206 silly addNameRange     '0.2.3',
+206 silly addNameRange     '0.2.4',
+206 silly addNameRange     '0.2.5',
+206 silly addNameRange     '0.3.0',
+206 silly addNameRange     '0.4.0',
+206 silly addNameRange     '0.4.1',
+206 silly addNameRange     '0.5.0',
+206 silly addNameRange     '0.5.1',
+206 silly addNameRange     '0.5.2',
+206 silly addNameRange     '0.5.3',
+206 silly addNameRange     '1.0.0',
+206 silly addNameRange     '1.0.1',
+206 silly addNameRange     '1.1.0',
+206 silly addNameRange     '1.2.0',
+206 silly addNameRange     '1.2.1',
+206 silly addNameRange     '1.3.0',
+206 silly addNameRange     '1.3.1',
+206 silly addNameRange     '1.4.0',
+206 silly addNameRange     '1.4.1',
+206 silly addNameRange     '1.4.2',
+206 silly addNameRange     '1.5.1',
+206 silly addNameRange     '1.6.0',
+206 silly addNameRange     '1.6.1',
+206 silly addNameRange     '1.6.2',
+206 silly addNameRange     '1.6.3',
+206 silly addNameRange     '1.6.4',
+206 silly addNameRange     '1.7.0',
+206 silly addNameRange     '1.8.0',
+206 silly addNameRange     '1.8.1' ] ]
+207 silly addNamed libpq@1.8.1
+208 verbose addNamed "1.8.1" is a plain semver version for libpq
+209 silly cache afterAdd libpq@1.8.1
+210 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\libpq\1.8.1\package\package.json not in flight; writing
+211 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+212 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\libpq\1.8.1\package\package.json written
+213 silly install resolved [ { name: 'readable-stream',
+213 silly install resolved     version: '1.0.31',
+213 silly install resolved     description: 'Streams2, a user-land copy of the stream library from Node.js v0.10.x',
+213 silly install resolved     main: 'readable.js',
+213 silly install resolved     dependencies:
+213 silly install resolved      { 'core-util-is': '~1.0.0',
+213 silly install resolved        isarray: '0.0.1',
+213 silly install resolved        string_decoder: '~0.10.x',
+213 silly install resolved        inherits: '~2.0.1' },
+213 silly install resolved     devDependencies: { tap: '~0.2.6' },
+213 silly install resolved     scripts: { test: 'tap test/simple/*.js' },
+213 silly install resolved     repository:
+213 silly install resolved      { type: 'git',
+213 silly install resolved        url: 'git://github.com/isaacs/readable-stream.git' },
+213 silly install resolved     keywords: [ 'readable', 'stream', 'pipe' ],
+213 silly install resolved     browser: { util: false },
+213 silly install resolved     author:
+213 silly install resolved      { name: 'Isaac Z. Schlueter',
+213 silly install resolved        email: 'i@izs.me',
+213 silly install resolved        url: 'http://blog.izs.me/' },
+213 silly install resolved     license: 'MIT',
+213 silly install resolved     bugs: { url: 'https://github.com/isaacs/readable-stream/issues' },
+213 silly install resolved     homepage: 'https://github.com/isaacs/readable-stream',
+213 silly install resolved     _id: 'readable-stream@1.0.31',
+213 silly install resolved     _shasum: '8f2502e0bc9e3b0da1b94520aabb4e2603ecafae',
+213 silly install resolved     _from: 'readable-stream@1.0.31',
+213 silly install resolved     _npmVersion: '1.4.9',
+213 silly install resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+213 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+213 silly install resolved     dist:
+213 silly install resolved      { shasum: '8f2502e0bc9e3b0da1b94520aabb4e2603ecafae',
+213 silly install resolved        tarball: 'http://registry.npmjs.org/readable-stream/-/readable-stream-1.0.31.tgz' },
+213 silly install resolved     directories: {},
+213 silly install resolved     _resolved: 'https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.31.tgz',
+213 silly install resolved     readme: 'ERROR: No README data found!' },
+213 silly install resolved   { name: 'pg-types',
+213 silly install resolved     version: '1.6.0',
+213 silly install resolved     description: 'Query result type converters for node-postgres',
+213 silly install resolved     main: 'index.js',
+213 silly install resolved     scripts: { test: 'mocha' },
+213 silly install resolved     repository:
+213 silly install resolved      { type: 'git',
+213 silly install resolved        url: 'git://github.com/brianc/node-pg-types.git' },
+213 silly install resolved     keywords: [ 'postgres', 'PostgreSQL', 'pg' ],
+213 silly install resolved     author: { name: 'Brian M. Carlson' },
+213 silly install resolved     license: 'MIT',
+213 silly install resolved     bugs: { url: 'https://github.com/brianc/node-pg-types/issues' },
+213 silly install resolved     homepage: 'https://github.com/brianc/node-pg-types',
+213 silly install resolved     devDependencies: { mocha: '^1.18.0' },
+213 silly install resolved     _id: 'pg-types@1.6.0',
+213 silly install resolved     _shasum: '3872a0f199143025497f4ee2a65fdaf00d7ea8b3',
+213 silly install resolved     _from: 'pg-types@1.6.0',
+213 silly install resolved     _npmVersion: '1.4.9',
+213 silly install resolved     _npmUser: { name: 'brianc', email: 'brian.m.carlson@gmail.com' },
+213 silly install resolved     maintainers: [ [Object] ],
+213 silly install resolved     dist:
+213 silly install resolved      { shasum: '3872a0f199143025497f4ee2a65fdaf00d7ea8b3',
+213 silly install resolved        tarball: 'http://registry.npmjs.org/pg-types/-/pg-types-1.6.0.tgz' },
+213 silly install resolved     directories: {},
+213 silly install resolved     _resolved: 'https://registry.npmjs.org/pg-types/-/pg-types-1.6.0.tgz',
+213 silly install resolved     readme: 'ERROR: No README data found!' },
+213 silly install resolved   { name: 'libpq',
+213 silly install resolved     version: '1.8.1',
+213 silly install resolved     description: 'Low-level native bindings to PostgreSQL libpq',
+213 silly install resolved     main: 'index.js',
+213 silly install resolved     keywords: [ 'postgres', 'libpq' ],
+213 silly install resolved     repository: { type: 'git', url: 'git://github.com/brianc/node-libpq.git' },
+213 silly install resolved     scripts:
+213 silly install resolved      { test: 'node-gyp rebuild && node_modules/.bin/mocha',
+213 silly install resolved        install: 'node-gyp rebuild' },
+213 silly install resolved     author: { name: 'Brian M. Carlson' },
+213 silly install resolved     license: 'MIT',
+213 silly install resolved     dependencies: { nan: '^2.0.4', bindings: '1.2.1' },
+213 silly install resolved     devDependencies:
+213 silly install resolved      { async: '^0.9.0',
+213 silly install resolved        lodash: '^2.4.1',
+213 silly install resolved        mocha: '^1.21.4',
+213 silly install resolved        okay: '^0.3.0' },
+213 silly install resolved     gypfile: true,
+213 silly install resolved     gitHead: '97b93099cd682b0ab72c976b7fc186a7b880dc27',
+213 silly install resolved     bugs: { url: 'https://github.com/brianc/node-libpq/issues' },
+213 silly install resolved     homepage: 'https://github.com/brianc/node-libpq#readme',
+213 silly install resolved     _id: 'libpq@1.8.1',
+213 silly install resolved     _shasum: 'ccf1ce65b4284beb5bc2d1f4284977e773585381',
+213 silly install resolved     _from: 'libpq@>=1.7.0 <2.0.0',
+213 silly install resolved     _npmVersion: '3.3.12',
+213 silly install resolved     _nodeVersion: '5.5.0',
+213 silly install resolved     _npmUser: { name: 'brianc', email: 'brian.m.carlson@gmail.com' },
+213 silly install resolved     maintainers: [ [Object] ],
+213 silly install resolved     dist:
+213 silly install resolved      { shasum: 'ccf1ce65b4284beb5bc2d1f4284977e773585381',
+213 silly install resolved        tarball: 'http://registry.npmjs.org/libpq/-/libpq-1.8.1.tgz' },
+213 silly install resolved     _npmOperationalInternal:
+213 silly install resolved      { host: 'packages-5-east.internal.npmjs.com',
+213 silly install resolved        tmp: 'tmp/libpq-1.8.1.tgz_1456419412184_0.7359417944680899' },
+213 silly install resolved     directories: {},
+213 silly install resolved     _resolved: 'https://registry.npmjs.org/libpq/-/libpq-1.8.1.tgz',
+213 silly install resolved     readme: 'ERROR: No README data found!' } ]
+214 info install readable-stream@1.0.31 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+215 info install pg-types@1.6.0 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+216 info install libpq@1.8.1 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+217 info installOne readable-stream@1.0.31
+218 verbose installOne of readable-stream to C:\Users\John\Desktop\SurveySite\node_modules\pg-native not in flight; installing
+219 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+220 info installOne pg-types@1.6.0
+221 verbose installOne of pg-types to C:\Users\John\Desktop\SurveySite\node_modules\pg-native not in flight; installing
+222 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+223 info installOne libpq@1.8.1
+224 verbose installOne of libpq to C:\Users\John\Desktop\SurveySite\node_modules\pg-native not in flight; installing
+225 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+226 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\readable-stream-82d4490c7613d75f.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+227 silly install write writing readable-stream 1.0.31 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+228 verbose unbuild node_modules\pg-native\node_modules\readable-stream
+229 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream is being purged from base C:\Users\John\Desktop\SurveySite
+230 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+231 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\readable-stream\1.0.31\package.tgz
+232 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+233 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream is being purged
+234 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+235 silly gunzTarPerm modes [ '777', '666' ]
+236 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\pg-types-7c1ba95418498c51.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+237 silly install write writing pg-types 1.6.0 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+238 verbose unbuild node_modules\pg-native\node_modules\pg-types
+239 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types is being purged from base C:\Users\John\Desktop\SurveySite
+240 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+241 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\pg-types\1.6.0\package.tgz
+242 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+243 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types is being purged
+244 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+245 silly gunzTarPerm modes [ '777', '666' ]
+246 silly gunzTarPerm extractEntry package.json
+247 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+248 silly gunzTarPerm extractEntry .npmignore
+249 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+250 silly gunzTarPerm extractEntry README.md
+251 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+252 silly gunzTarPerm extractEntry package.json
+253 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+254 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\libpq-9c7d184058dcab99.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+255 silly install write writing libpq 1.8.1 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+256 silly gunzTarPerm extractEntry index.js
+257 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+258 silly gunzTarPerm extractEntry .travis.yml
+259 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+260 silly gunzTarPerm extractEntry .npmignore
+261 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+262 silly gunzTarPerm extractEntry README.md
+263 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+264 verbose unbuild node_modules\pg-native\node_modules\libpq
+265 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq is being purged from base C:\Users\John\Desktop\SurveySite
+266 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+267 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\libpq\1.8.1\package.tgz
+268 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+269 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq is being purged
+270 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+271 silly gunzTarPerm extractEntry Makefile
+272 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+273 silly gunzTarPerm extractEntry lib/arrayParser.js
+274 silly gunzTarPerm modified mode [ 'lib/arrayParser.js', 420, 438 ]
+275 silly gunzTarPerm modes [ '777', '666' ]
+276 silly gunzTarPerm extractEntry LICENSE
+277 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+278 silly gunzTarPerm extractEntry transform.js
+279 silly gunzTarPerm modified mode [ 'transform.js', 420, 438 ]
+280 silly gunzTarPerm extractEntry package.json
+281 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+282 silly gunzTarPerm extractEntry lib/binaryParsers.js
+283 silly gunzTarPerm modified mode [ 'lib/binaryParsers.js', 420, 438 ]
+284 silly gunzTarPerm extractEntry lib/textParsers.js
+285 silly gunzTarPerm modified mode [ 'lib/textParsers.js', 420, 438 ]
+286 silly gunzTarPerm extractEntry test/array.js
+287 silly gunzTarPerm modified mode [ 'test/array.js', 420, 438 ]
+288 silly gunzTarPerm extractEntry test/assert.js
+289 silly gunzTarPerm modified mode [ 'test/assert.js', 420, 438 ]
+290 silly gunzTarPerm extractEntry test/dates.js
+291 silly gunzTarPerm modified mode [ 'test/dates.js', 420, 438 ]
+292 silly gunzTarPerm extractEntry test/index.js
+293 silly gunzTarPerm modified mode [ 'test/index.js', 420, 438 ]
+294 silly gunzTarPerm extractEntry duplex.js
+295 silly gunzTarPerm modified mode [ 'duplex.js', 420, 438 ]
+296 silly gunzTarPerm extractEntry readable.js
+297 silly gunzTarPerm modified mode [ 'readable.js', 436, 438 ]
+298 silly gunzTarPerm extractEntry .npmignore
+299 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+300 silly gunzTarPerm extractEntry README.md
+301 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+302 silly gunzTarPerm extractEntry index.js
+303 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+304 silly gunzTarPerm extractEntry passthrough.js
+305 silly gunzTarPerm modified mode [ 'passthrough.js', 420, 438 ]
+306 silly gunzTarPerm extractEntry writable.js
+307 silly gunzTarPerm modified mode [ 'writable.js', 420, 438 ]
+308 silly gunzTarPerm extractEntry binding.gyp
+309 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+310 silly gunzTarPerm extractEntry .travis.yml
+311 silly gunzTarPerm modified mode [ '.travis.yml', 420, 438 ]
+312 silly gunzTarPerm extractEntry Makefile
+313 silly gunzTarPerm modified mode [ 'Makefile', 420, 438 ]
+314 silly gunzTarPerm extractEntry src/addon.cc
+315 silly gunzTarPerm modified mode [ 'src/addon.cc', 420, 438 ]
+316 silly gunzTarPerm extractEntry lib/_stream_duplex.js
+317 silly gunzTarPerm modified mode [ 'lib/_stream_duplex.js', 436, 438 ]
+318 silly gunzTarPerm extractEntry lib/_stream_passthrough.js
+319 silly gunzTarPerm modified mode [ 'lib/_stream_passthrough.js', 436, 438 ]
+320 silly gunzTarPerm extractEntry src/addon.h
+321 silly gunzTarPerm modified mode [ 'src/addon.h', 420, 438 ]
+322 silly gunzTarPerm extractEntry src/connect-async-worker.cc
+323 silly gunzTarPerm modified mode [ 'src/connect-async-worker.cc', 420, 438 ]
+324 silly gunzTarPerm extractEntry lib/_stream_readable.js
+325 silly gunzTarPerm modified mode [ 'lib/_stream_readable.js', 436, 438 ]
+326 silly gunzTarPerm extractEntry lib/_stream_transform.js
+327 silly gunzTarPerm modified mode [ 'lib/_stream_transform.js', 436, 438 ]
+328 silly gunzTarPerm extractEntry lib/_stream_writable.js
+329 silly gunzTarPerm modified mode [ 'lib/_stream_writable.js', 436, 438 ]
+330 silly gunzTarPerm extractEntry src/connect-async-worker.h
+331 silly gunzTarPerm modified mode [ 'src/connect-async-worker.h', 420, 438 ]
+332 silly gunzTarPerm extractEntry src/connection.cc
+333 silly gunzTarPerm modified mode [ 'src/connection.cc', 420, 438 ]
+334 silly gunzTarPerm extractEntry src/connection.h
+335 silly gunzTarPerm modified mode [ 'src/connection.h', 420, 438 ]
+336 silly gunzTarPerm extractEntry test/async-connection.js
+337 silly gunzTarPerm modified mode [ 'test/async-connection.js', 420, 438 ]
+338 silly gunzTarPerm extractEntry test/escaping.js
+339 silly gunzTarPerm modified mode [ 'test/escaping.js', 420, 438 ]
+340 silly gunzTarPerm extractEntry test/helper.js
+341 silly gunzTarPerm modified mode [ 'test/helper.js', 420, 438 ]
+342 silly gunzTarPerm extractEntry test/index.js
+343 silly gunzTarPerm modified mode [ 'test/index.js', 420, 438 ]
+344 silly gunzTarPerm extractEntry test/error-info.js
+345 silly gunzTarPerm modified mode [ 'test/error-info.js', 420, 438 ]
+346 silly gunzTarPerm extractEntry test/async-socket.js
+347 silly gunzTarPerm modified mode [ 'test/async-socket.js', 420, 438 ]
+348 silly gunzTarPerm extractEntry test/sync-prepare.js
+349 silly gunzTarPerm modified mode [ 'test/sync-prepare.js', 420, 438 ]
+350 silly gunzTarPerm extractEntry test/multiple-queries.js
+351 silly gunzTarPerm modified mode [ 'test/multiple-queries.js', 420, 438 ]
+352 silly gunzTarPerm extractEntry test/non-blocking-controls.js
+353 silly gunzTarPerm modified mode [ 'test/non-blocking-controls.js', 420, 438 ]
+354 silly gunzTarPerm extractEntry test/notification.js
+355 silly gunzTarPerm modified mode [ 'test/notification.js', 420, 438 ]
+356 silly gunzTarPerm extractEntry test/error-conditions.js
+357 silly gunzTarPerm modified mode [ 'test/error-conditions.js', 420, 438 ]
+358 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types\package.json
+359 silly gunzTarPerm extractEntry test/result-accessors.js
+360 silly gunzTarPerm modified mode [ 'test/result-accessors.js', 420, 438 ]
+361 silly gunzTarPerm extractEntry test/copy-out.js
+362 silly gunzTarPerm modified mode [ 'test/copy-out.js', 420, 438 ]
+363 silly gunzTarPerm extractEntry test/server-version.js
+364 silly gunzTarPerm modified mode [ 'test/server-version.js', 420, 438 ]
+365 silly gunzTarPerm extractEntry test/copy-in.js
+366 silly gunzTarPerm modified mode [ 'test/copy-in.js', 420, 438 ]
+367 info preinstall pg-types@1.6.0
+368 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types\package.json
+369 silly gunzTarPerm extractEntry test/socket.js
+370 silly gunzTarPerm modified mode [ 'test/socket.js', 420, 438 ]
+371 silly gunzTarPerm extractEntry test/construction.js
+372 silly gunzTarPerm modified mode [ 'test/construction.js', 420, 438 ]
+373 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types\package.json
+374 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\package.json
+375 silly install resolved []
+376 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+377 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+378 silly gunzTarPerm extractEntry test/sync-integration.js
+379 silly gunzTarPerm modified mode [ 'test/sync-integration.js', 420, 438 ]
+380 silly gunzTarPerm extractEntry test/cancel.js
+381 silly gunzTarPerm modified mode [ 'test/cancel.js', 420, 438 ]
+382 info preinstall readable-stream@1.0.31
+383 info linkStuff pg-types@1.6.0
+384 silly linkStuff pg-types@1.6.0 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules as its parent node_modules
+385 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\package.json
+386 silly gunzTarPerm extractEntry test/sync-parameters.js
+387 silly gunzTarPerm modified mode [ 'test/sync-parameters.js', 420, 438 ]
+388 silly gunzTarPerm extractEntry test/load.js
+389 silly gunzTarPerm modified mode [ 'test/load.js', 420, 438 ]
+390 silly prepareForInstallMany adding core-util-is@~1.0.0 from readable-stream dependencies
+391 silly prepareForInstallMany adding isarray@0.0.1 from readable-stream dependencies
+392 silly prepareForInstallMany adding string_decoder@~0.10.x from readable-stream dependencies
+393 silly prepareForInstallMany adding inherits@~2.0.1 from readable-stream dependencies
+394 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\package.json
+395 verbose linkBins pg-types@1.6.0
+396 verbose linkMans pg-types@1.6.0
+397 verbose rebuildBundles pg-types@1.6.0
+398 info install pg-types@1.6.0
+399 silly cache add args [ 'core-util-is@~1.0.0', null ]
+400 verbose cache add spec core-util-is@~1.0.0
+401 silly cache add args [ 'isarray@0.0.1', null ]
+402 verbose cache add spec isarray@0.0.1
+403 silly cache add parsed spec Result {
+403 silly cache add   raw: 'core-util-is@~1.0.0',
+403 silly cache add   scope: null,
+403 silly cache add   name: 'core-util-is',
+403 silly cache add   rawSpec: '~1.0.0',
+403 silly cache add   spec: '>=1.0.0 <1.1.0',
+403 silly cache add   type: 'range' }
+404 silly addNamed core-util-is@>=1.0.0 <1.1.0
+405 verbose addNamed ">=1.0.0 <1.1.0" is a valid semver range for core-util-is
+406 silly addNameRange { name: 'core-util-is', range: '>=1.0.0 <1.1.0', hasData: false }
+407 silly mapToRegistry name core-util-is
+408 silly mapToRegistry using default registry
+409 silly mapToRegistry registry https://registry.npmjs.org/
+410 silly mapToRegistry uri https://registry.npmjs.org/core-util-is
+411 verbose addNameRange registry:https://registry.npmjs.org/core-util-is not in flight; fetching
+412 silly cache add parsed spec Result {
+412 silly cache add   raw: 'isarray@0.0.1',
+412 silly cache add   scope: null,
+412 silly cache add   name: 'isarray',
+412 silly cache add   rawSpec: '0.0.1',
+412 silly cache add   spec: '0.0.1',
+412 silly cache add   type: 'version' }
+413 silly addNamed isarray@0.0.1
+414 verbose addNamed "0.0.1" is a plain semver version for isarray
+415 silly mapToRegistry name isarray
+416 silly mapToRegistry using default registry
+417 silly mapToRegistry registry https://registry.npmjs.org/
+418 silly mapToRegistry uri https://registry.npmjs.org/isarray
+419 verbose addNameVersion registry:https://registry.npmjs.org/isarray not in flight; fetching
+420 silly cache add args [ 'string_decoder@~0.10.x', null ]
+421 verbose cache add spec string_decoder@~0.10.x
+422 silly cache add parsed spec Result {
+422 silly cache add   raw: 'string_decoder@~0.10.x',
+422 silly cache add   scope: null,
+422 silly cache add   name: 'string_decoder',
+422 silly cache add   rawSpec: '~0.10.x',
+422 silly cache add   spec: '>=0.10.0 <0.11.0',
+422 silly cache add   type: 'range' }
+423 silly addNamed string_decoder@>=0.10.0 <0.11.0
+424 verbose addNamed ">=0.10.0 <0.11.0" is a valid semver range for string_decoder
+425 silly addNameRange { name: 'string_decoder',
+425 silly addNameRange   range: '>=0.10.0 <0.11.0',
+425 silly addNameRange   hasData: false }
+426 silly mapToRegistry name string_decoder
+427 silly mapToRegistry using default registry
+428 silly mapToRegistry registry https://registry.npmjs.org/
+429 silly mapToRegistry uri https://registry.npmjs.org/string_decoder
+430 verbose addNameRange registry:https://registry.npmjs.org/string_decoder not in flight; fetching
+431 silly cache add args [ 'inherits@~2.0.1', null ]
+432 verbose cache add spec inherits@~2.0.1
+433 silly cache add parsed spec Result {
+433 silly cache add   raw: 'inherits@~2.0.1',
+433 silly cache add   scope: null,
+433 silly cache add   name: 'inherits',
+433 silly cache add   rawSpec: '~2.0.1',
+433 silly cache add   spec: '>=2.0.1 <2.1.0',
+433 silly cache add   type: 'range' }
+434 silly addNamed inherits@>=2.0.1 <2.1.0
+435 verbose addNamed ">=2.0.1 <2.1.0" is a valid semver range for inherits
+436 silly addNameRange { name: 'inherits', range: '>=2.0.1 <2.1.0', hasData: false }
+437 silly mapToRegistry name inherits
+438 silly mapToRegistry using default registry
+439 silly mapToRegistry registry https://registry.npmjs.org/
+440 silly mapToRegistry uri https://registry.npmjs.org/inherits
+441 verbose addNameRange registry:https://registry.npmjs.org/inherits not in flight; fetching
+442 info postinstall pg-types@1.6.0
+443 silly gunzTarPerm extractEntry test/sync.js
+444 silly gunzTarPerm modified mode [ 'test/sync.js', 420, 438 ]
+445 silly gunzTarPerm extractEntry test/many-connections.js
+446 silly gunzTarPerm modified mode [ 'test/many-connections.js', 420, 438 ]
+447 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\pg-types-7c1ba95418498c51.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\pg-types
+448 verbose request uri https://registry.npmjs.org/string_decoder
+449 verbose request no auth needed
+450 info attempt registry request try #1 at 3:58:27 PM
+451 verbose etag "3SLQP4XEWUIBONOV855WOPR0B"
+452 http request GET https://registry.npmjs.org/string_decoder
+453 verbose request uri https://registry.npmjs.org/isarray
+454 verbose request no auth needed
+455 info attempt registry request try #1 at 3:58:27 PM
+456 verbose etag "9BAUPW5RTV3W0838KA6Y08NTG"
+457 http request GET https://registry.npmjs.org/isarray
+458 verbose request uri https://registry.npmjs.org/core-util-is
+459 verbose request no auth needed
+460 info attempt registry request try #1 at 3:58:27 PM
+461 verbose etag "75RK9UUWAHLYO40UZKLLOJ8YF"
+462 http request GET https://registry.npmjs.org/core-util-is
+463 verbose request uri https://registry.npmjs.org/inherits
+464 verbose request no auth needed
+465 info attempt registry request try #1 at 3:58:27 PM
+466 verbose etag "3645UNH34SN5CHM42TXWU4X9A"
+467 http request GET https://registry.npmjs.org/inherits
+468 silly gunzTarPerm extractEntry test/mocha.opts
+469 silly gunzTarPerm modified mode [ 'test/mocha.opts', 420, 438 ]
+470 http 304 https://registry.npmjs.org/string_decoder
+471 verbose headers { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+471 verbose headers   via: '1.1 varnish',
+471 verbose headers   'cache-control': 'max-age=300',
+471 verbose headers   etag: '"3SLQP4XEWUIBONOV855WOPR0B"',
+471 verbose headers   age: '137',
+471 verbose headers   connection: 'keep-alive',
+471 verbose headers   'x-served-by': 'cache-atl6243-ATL',
+471 verbose headers   'x-cache': 'HIT',
+471 verbose headers   'x-cache-hits': '26',
+471 verbose headers   'x-timer': 'S1457643507.197146,VS0,VE0',
+471 verbose headers   vary: 'Accept' }
+472 silly get cb [ 304,
+472 silly get   { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+472 silly get     via: '1.1 varnish',
+472 silly get     'cache-control': 'max-age=300',
+472 silly get     etag: '"3SLQP4XEWUIBONOV855WOPR0B"',
+472 silly get     age: '137',
+472 silly get     connection: 'keep-alive',
+472 silly get     'x-served-by': 'cache-atl6243-ATL',
+472 silly get     'x-cache': 'HIT',
+472 silly get     'x-cache-hits': '26',
+472 silly get     'x-timer': 'S1457643507.197146,VS0,VE0',
+472 silly get     vary: 'Accept' } ]
+473 verbose etag https://registry.npmjs.org/string_decoder from cache
+474 verbose get saving string_decoder to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\string_decoder\.cache.json
+475 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+476 silly addNameRange number 2 { name: 'string_decoder',
+476 silly addNameRange   range: '>=0.10.0 <0.11.0',
+476 silly addNameRange   hasData: true }
+477 silly addNameRange versions [ 'string_decoder',
+477 silly addNameRange   [ '0.0.0',
+477 silly addNameRange     '0.0.1',
+477 silly addNameRange     '0.10.24',
+477 silly addNameRange     '0.11.10',
+477 silly addNameRange     '0.10.25',
+477 silly addNameRange     '0.11.10-1',
+477 silly addNameRange     '0.10.25-1',
+477 silly addNameRange     '0.10.31' ] ]
+478 silly addNamed string_decoder@0.10.31
+479 verbose addNamed "0.10.31" is a plain semver version for string_decoder
+480 silly cache afterAdd string_decoder@0.10.31
+481 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\string_decoder\0.10.31\package\package.json not in flight; writing
+482 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+483 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\string_decoder\0.10.31\package\package.json written
+484 http 304 https://registry.npmjs.org/inherits
+485 verbose headers { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+485 verbose headers   via: '1.1 varnish',
+485 verbose headers   'cache-control': 'max-age=300',
+485 verbose headers   etag: '"3645UNH34SN5CHM42TXWU4X9A"',
+485 verbose headers   age: '151',
+485 verbose headers   connection: 'keep-alive',
+485 verbose headers   'x-served-by': 'cache-atl6225-ATL',
+485 verbose headers   'x-cache': 'HIT',
+485 verbose headers   'x-cache-hits': '37',
+485 verbose headers   'x-timer': 'S1457643507.197760,VS0,VE0',
+485 verbose headers   vary: 'Accept' }
+486 silly get cb [ 304,
+486 silly get   { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+486 silly get     via: '1.1 varnish',
+486 silly get     'cache-control': 'max-age=300',
+486 silly get     etag: '"3645UNH34SN5CHM42TXWU4X9A"',
+486 silly get     age: '151',
+486 silly get     connection: 'keep-alive',
+486 silly get     'x-served-by': 'cache-atl6225-ATL',
+486 silly get     'x-cache': 'HIT',
+486 silly get     'x-cache-hits': '37',
+486 silly get     'x-timer': 'S1457643507.197760,VS0,VE0',
+486 silly get     vary: 'Accept' } ]
+487 verbose etag https://registry.npmjs.org/inherits from cache
+488 verbose get saving inherits to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\inherits\.cache.json
+489 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+490 http 304 https://registry.npmjs.org/isarray
+491 verbose headers { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+491 verbose headers   via: '1.1 varnish',
+491 verbose headers   'cache-control': 'max-age=300',
+491 verbose headers   etag: '"9BAUPW5RTV3W0838KA6Y08NTG"',
+491 verbose headers   age: '126',
+491 verbose headers   connection: 'keep-alive',
+491 verbose headers   'x-served-by': 'cache-atl6241-ATL',
+491 verbose headers   'x-cache': 'HIT',
+491 verbose headers   'x-cache-hits': '21',
+491 verbose headers   'x-timer': 'S1457643507.203781,VS0,VE0',
+491 verbose headers   vary: 'Accept' }
+492 silly get cb [ 304,
+492 silly get   { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+492 silly get     via: '1.1 varnish',
+492 silly get     'cache-control': 'max-age=300',
+492 silly get     etag: '"9BAUPW5RTV3W0838KA6Y08NTG"',
+492 silly get     age: '126',
+492 silly get     connection: 'keep-alive',
+492 silly get     'x-served-by': 'cache-atl6241-ATL',
+492 silly get     'x-cache': 'HIT',
+492 silly get     'x-cache-hits': '21',
+492 silly get     'x-timer': 'S1457643507.203781,VS0,VE0',
+492 silly get     vary: 'Accept' } ]
+493 verbose etag https://registry.npmjs.org/isarray from cache
+494 verbose get saving isarray to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\isarray\.cache.json
+495 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+496 http 304 https://registry.npmjs.org/core-util-is
+497 verbose headers { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+497 verbose headers   via: '1.1 varnish',
+497 verbose headers   'cache-control': 'max-age=300',
+497 verbose headers   etag: '"75RK9UUWAHLYO40UZKLLOJ8YF"',
+497 verbose headers   age: '137',
+497 verbose headers   connection: 'keep-alive',
+497 verbose headers   'x-served-by': 'cache-atl6238-ATL',
+497 verbose headers   'x-cache': 'HIT',
+497 verbose headers   'x-cache-hits': '23',
+497 verbose headers   'x-timer': 'S1457643507.201480,VS0,VE0',
+497 verbose headers   vary: 'Accept' }
+498 silly get cb [ 304,
+498 silly get   { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+498 silly get     via: '1.1 varnish',
+498 silly get     'cache-control': 'max-age=300',
+498 silly get     etag: '"75RK9UUWAHLYO40UZKLLOJ8YF"',
+498 silly get     age: '137',
+498 silly get     connection: 'keep-alive',
+498 silly get     'x-served-by': 'cache-atl6238-ATL',
+498 silly get     'x-cache': 'HIT',
+498 silly get     'x-cache-hits': '23',
+498 silly get     'x-timer': 'S1457643507.201480,VS0,VE0',
+498 silly get     vary: 'Accept' } ]
+499 verbose etag https://registry.npmjs.org/core-util-is from cache
+500 verbose get saving core-util-is to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\core-util-is\.cache.json
+501 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+502 silly addNameRange number 2 { name: 'inherits', range: '>=2.0.1 <2.1.0', hasData: true }
+503 silly addNameRange versions [ 'inherits', [ '1.0.0', '2.0.0', '2.0.1', '1.0.1', '1.0.2' ] ]
+504 silly addNamed inherits@2.0.1
+505 verbose addNamed "2.0.1" is a plain semver version for inherits
+506 silly addNameRange number 2 { name: 'core-util-is', range: '>=1.0.0 <1.1.0', hasData: true }
+507 silly addNameRange versions [ 'core-util-is', [ '1.0.0', '1.0.1', '1.0.2' ] ]
+508 silly addNamed core-util-is@1.0.2
+509 verbose addNamed "1.0.2" is a plain semver version for core-util-is
+510 silly cache afterAdd isarray@0.0.1
+511 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\isarray\0.0.1\package\package.json not in flight; writing
+512 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+513 silly cache afterAdd inherits@2.0.1
+514 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\inherits\2.0.1\package\package.json not in flight; writing
+515 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+516 silly cache afterAdd core-util-is@1.0.2
+517 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\core-util-is\1.0.2\package\package.json not in flight; writing
+518 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+519 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\isarray\0.0.1\package\package.json written
+520 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\inherits\2.0.1\package\package.json written
+521 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\core-util-is\1.0.2\package\package.json written
+522 silly install resolved [ { name: 'string_decoder',
+522 silly install resolved     version: '0.10.31',
+522 silly install resolved     description: 'The string_decoder module from Node core',
+522 silly install resolved     main: 'index.js',
+522 silly install resolved     dependencies: {},
+522 silly install resolved     devDependencies: { tap: '~0.4.8' },
+522 silly install resolved     scripts: { test: 'tap test/simple/*.js' },
+522 silly install resolved     repository:
+522 silly install resolved      { type: 'git',
+522 silly install resolved        url: 'git://github.com/rvagg/string_decoder.git' },
+522 silly install resolved     homepage: 'https://github.com/rvagg/string_decoder',
+522 silly install resolved     keywords: [ 'string', 'decoder', 'browser', 'browserify' ],
+522 silly install resolved     license: 'MIT',
+522 silly install resolved     gitHead: 'd46d4fd87cf1d06e031c23f1ba170ca7d4ade9a0',
+522 silly install resolved     bugs: { url: 'https://github.com/rvagg/string_decoder/issues' },
+522 silly install resolved     _id: 'string_decoder@0.10.31',
+522 silly install resolved     _shasum: '62e203bc41766c6c28c9fc84301dab1c5310fa94',
+522 silly install resolved     _from: 'string_decoder@>=0.10.0 <0.11.0',
+522 silly install resolved     _npmVersion: '1.4.23',
+522 silly install resolved     _npmUser: { name: 'rvagg', email: 'rod@vagg.org' },
+522 silly install resolved     maintainers: [ [Object], [Object] ],
+522 silly install resolved     dist:
+522 silly install resolved      { shasum: '62e203bc41766c6c28c9fc84301dab1c5310fa94',
+522 silly install resolved        tarball: 'http://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz' },
+522 silly install resolved     directories: {},
+522 silly install resolved     _resolved: 'https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz',
+522 silly install resolved     readme: 'ERROR: No README data found!' },
+522 silly install resolved   { name: 'isarray',
+522 silly install resolved     description: 'Array#isArray for older browsers',
+522 silly install resolved     version: '0.0.1',
+522 silly install resolved     repository:
+522 silly install resolved      { type: 'git',
+522 silly install resolved        url: 'git://github.com/juliangruber/isarray.git' },
+522 silly install resolved     homepage: 'https://github.com/juliangruber/isarray',
+522 silly install resolved     main: 'index.js',
+522 silly install resolved     scripts: { test: 'tap test/*.js' },
+522 silly install resolved     dependencies: {},
+522 silly install resolved     devDependencies: { tap: '*' },
+522 silly install resolved     keywords: [ 'browser', 'isarray', 'array' ],
+522 silly install resolved     author:
+522 silly install resolved      { name: 'Julian Gruber',
+522 silly install resolved        email: 'mail@juliangruber.com',
+522 silly install resolved        url: 'http://juliangruber.com' },
+522 silly install resolved     license: 'MIT',
+522 silly install resolved     _id: 'isarray@0.0.1',
+522 silly install resolved     dist:
+522 silly install resolved      { shasum: '8a18acfca9a8f4177e09abfc6038939b05d1eedf',
+522 silly install resolved        tarball: 'http://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz' },
+522 silly install resolved     _from: 'isarray@0.0.1',
+522 silly install resolved     _npmVersion: '1.2.18',
+522 silly install resolved     _npmUser: { name: 'juliangruber', email: 'julian@juliangruber.com' },
+522 silly install resolved     maintainers: [ [Object] ],
+522 silly install resolved     directories: {},
+522 silly install resolved     _shasum: '8a18acfca9a8f4177e09abfc6038939b05d1eedf',
+522 silly install resolved     _resolved: 'https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz',
+522 silly install resolved     bugs: { url: 'https://github.com/juliangruber/isarray/issues' },
+522 silly install resolved     readme: 'ERROR: No README data found!' },
+522 silly install resolved   { name: 'inherits',
+522 silly install resolved     description: 'Browser-friendly inheritance fully compatible with standard node.js inherits()',
+522 silly install resolved     version: '2.0.1',
+522 silly install resolved     keywords:
+522 silly install resolved      [ 'inheritance',
+522 silly install resolved        'class',
+522 silly install resolved        'klass',
+522 silly install resolved        'oop',
+522 silly install resolved        'object-oriented',
+522 silly install resolved        'inherits',
+522 silly install resolved        'browser',
+522 silly install resolved        'browserify' ],
+522 silly install resolved     main: './inherits.js',
+522 silly install resolved     browser: './inherits_browser.js',
+522 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/inherits.git' },
+522 silly install resolved     license: 'ISC',
+522 silly install resolved     scripts: { test: 'node test' },
+522 silly install resolved     bugs: { url: 'https://github.com/isaacs/inherits/issues' },
+522 silly install resolved     _id: 'inherits@2.0.1',
+522 silly install resolved     dist:
+522 silly install resolved      { shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+522 silly install resolved        tarball: 'http://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz' },
+522 silly install resolved     _from: 'inherits@>=2.0.1 <2.1.0',
+522 silly install resolved     _npmVersion: '1.3.8',
+522 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+522 silly install resolved     maintainers: [ [Object] ],
+522 silly install resolved     directories: {},
+522 silly install resolved     _shasum: 'b17d08d326b4423e568eff719f91b0b1cbdf69f1',
+522 silly install resolved     _resolved: 'https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz',
+522 silly install resolved     readme: 'ERROR: No README data found!',
+522 silly install resolved     homepage: 'https://github.com/isaacs/inherits#readme' },
+522 silly install resolved   { name: 'core-util-is',
+522 silly install resolved     version: '1.0.2',
+522 silly install resolved     description: 'The `util.is*` functions introduced in Node v0.12.',
+522 silly install resolved     main: 'lib/util.js',
+522 silly install resolved     repository: { type: 'git', url: 'git://github.com/isaacs/core-util-is.git' },
+522 silly install resolved     keywords:
+522 silly install resolved      [ 'util',
+522 silly install resolved        'isBuffer',
+522 silly install resolved        'isArray',
+522 silly install resolved        'isNumber',
+522 silly install resolved        'isString',
+522 silly install resolved        'isRegExp',
+522 silly install resolved        'isThis',
+522 silly install resolved        'isThat',
+522 silly install resolved        'polyfill' ],
+522 silly install resolved     author:
+522 silly install resolved      { name: 'Isaac Z. Schlueter',
+522 silly install resolved        email: 'i@izs.me',
+522 silly install resolved        url: 'http://blog.izs.me/' },
+522 silly install resolved     license: 'MIT',
+522 silly install resolved     bugs: { url: 'https://github.com/isaacs/core-util-is/issues' },
+522 silly install resolved     scripts: { test: 'tap test.js' },
+522 silly install resolved     devDependencies: { tap: '^2.3.0' },
+522 silly install resolved     gitHead: 'a177da234df5638b363ddc15fa324619a38577c8',
+522 silly install resolved     homepage: 'https://github.com/isaacs/core-util-is#readme',
+522 silly install resolved     _id: 'core-util-is@1.0.2',
+522 silly install resolved     _shasum: 'b5fd54220aa2bc5ab57aab7140c940754503c1a7',
+522 silly install resolved     _from: 'core-util-is@>=1.0.0 <1.1.0',
+522 silly install resolved     _npmVersion: '3.3.2',
+522 silly install resolved     _nodeVersion: '4.0.0',
+522 silly install resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+522 silly install resolved     dist:
+522 silly install resolved      { shasum: 'b5fd54220aa2bc5ab57aab7140c940754503c1a7',
+522 silly install resolved        tarball: 'http://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz' },
+522 silly install resolved     maintainers: [ [Object] ],
+522 silly install resolved     directories: {},
+522 silly install resolved     _resolved: 'https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz',
+522 silly install resolved     readme: 'ERROR: No README data found!' } ]
+523 info install string_decoder@0.10.31 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+524 info install isarray@0.0.1 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+525 info install inherits@2.0.1 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+526 info install core-util-is@1.0.2 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+527 info installOne string_decoder@0.10.31
+528 verbose installOne of string_decoder to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream not in flight; installing
+529 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+530 info installOne isarray@0.0.1
+531 verbose installOne of isarray to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream not in flight; installing
+532 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+533 info installOne inherits@2.0.1
+534 verbose installOne of inherits to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream not in flight; installing
+535 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+536 info installOne core-util-is@1.0.2
+537 verbose installOne of core-util-is to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream not in flight; installing
+538 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+539 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\inherits-5da950d97f61c518.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+540 silly install write writing inherits 2.0.1 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+541 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\string-decoder-49918f61b7908005.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+542 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\isarray-2817f38809704a27.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+543 silly install write writing string_decoder 0.10.31 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+544 silly install write writing isarray 0.0.1 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+545 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\core-util-is-ea677837c9582339.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+546 verbose unbuild node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+547 silly install write writing core-util-is 1.0.2 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+548 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits is being purged from base C:\Users\John\Desktop\SurveySite
+549 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+550 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\inherits\2.0.1\package.tgz
+551 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+552 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits is being purged
+553 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+554 verbose unbuild node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+555 verbose unbuild node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+556 silly gunzTarPerm modes [ '777', '666' ]
+557 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray is being purged from base C:\Users\John\Desktop\SurveySite
+558 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+559 verbose unbuild node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+560 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder is being purged from base C:\Users\John\Desktop\SurveySite
+561 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+562 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\isarray\0.0.1\package.tgz
+563 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+564 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray is being purged
+565 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+566 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\string_decoder\0.10.31\package.tgz
+567 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+568 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder is being purged
+569 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+570 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\package.json
+571 silly gunzTarPerm modes [ '777', '666' ]
+572 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is is being purged from base C:\Users\John\Desktop\SurveySite
+573 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+574 silly gunzTarPerm modes [ '777', '666' ]
+575 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\core-util-is\1.0.2\package.tgz
+576 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+577 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is is being purged
+578 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+579 silly gunzTarPerm modes [ '777', '666' ]
+580 silly gunzTarPerm extractEntry package.json
+581 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+582 silly gunzTarPerm extractEntry package.json
+583 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+584 silly gunzTarPerm extractEntry package.json
+585 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+586 info preinstall libpq@1.8.1
+587 silly gunzTarPerm extractEntry package.json
+588 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+589 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\package.json
+590 silly gunzTarPerm extractEntry .npmignore
+591 silly gunzTarPerm modified mode [ '.npmignore', 436, 438 ]
+592 silly gunzTarPerm extractEntry README.md
+593 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+594 silly gunzTarPerm extractEntry README.md
+595 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+596 silly gunzTarPerm extractEntry LICENSE
+597 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+598 silly gunzTarPerm extractEntry README.md
+599 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+600 silly gunzTarPerm extractEntry index.js
+601 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+602 silly prepareForInstallMany adding nan@^2.0.4 from libpq dependencies
+603 silly prepareForInstallMany adding bindings@1.2.1 from libpq dependencies
+604 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\package.json
+605 silly gunzTarPerm extractEntry inherits.js
+606 silly gunzTarPerm modified mode [ 'inherits.js', 420, 438 ]
+607 silly gunzTarPerm extractEntry inherits_browser.js
+608 silly gunzTarPerm modified mode [ 'inherits_browser.js', 420, 438 ]
+609 silly gunzTarPerm extractEntry README.md
+610 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+611 silly gunzTarPerm extractEntry LICENSE
+612 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+613 silly gunzTarPerm extractEntry LICENSE
+614 silly gunzTarPerm modified mode [ 'LICENSE', 436, 438 ]
+615 silly gunzTarPerm extractEntry index.js
+616 silly gunzTarPerm modified mode [ 'index.js', 436, 438 ]
+617 silly gunzTarPerm extractEntry build/build.js
+618 silly gunzTarPerm modified mode [ 'build/build.js', 420, 438 ]
+619 silly gunzTarPerm extractEntry component.json
+620 silly gunzTarPerm modified mode [ 'component.json', 420, 438 ]
+621 silly cache add args [ 'nan@^2.0.4', null ]
+622 verbose cache add spec nan@^2.0.4
+623 silly cache add args [ 'bindings@1.2.1', null ]
+624 verbose cache add spec bindings@1.2.1
+625 silly cache add parsed spec Result {
+625 silly cache add   raw: 'nan@^2.0.4',
+625 silly cache add   scope: null,
+625 silly cache add   name: 'nan',
+625 silly cache add   rawSpec: '^2.0.4',
+625 silly cache add   spec: '>=2.0.4 <3.0.0',
+625 silly cache add   type: 'range' }
+626 silly addNamed nan@>=2.0.4 <3.0.0
+627 verbose addNamed ">=2.0.4 <3.0.0" is a valid semver range for nan
+628 silly addNameRange { name: 'nan', range: '>=2.0.4 <3.0.0', hasData: false }
+629 silly mapToRegistry name nan
+630 silly mapToRegistry using default registry
+631 silly mapToRegistry registry https://registry.npmjs.org/
+632 silly mapToRegistry uri https://registry.npmjs.org/nan
+633 verbose addNameRange registry:https://registry.npmjs.org/nan not in flight; fetching
+634 silly cache add parsed spec Result {
+634 silly cache add   raw: 'bindings@1.2.1',
+634 silly cache add   scope: null,
+634 silly cache add   name: 'bindings',
+634 silly cache add   rawSpec: '1.2.1',
+634 silly cache add   spec: '1.2.1',
+634 silly cache add   type: 'version' }
+635 silly addNamed bindings@1.2.1
+636 verbose addNamed "1.2.1" is a plain semver version for bindings
+637 silly mapToRegistry name bindings
+638 silly mapToRegistry using default registry
+639 silly mapToRegistry registry https://registry.npmjs.org/
+640 silly mapToRegistry uri https://registry.npmjs.org/bindings
+641 verbose addNameVersion registry:https://registry.npmjs.org/bindings not in flight; fetching
+642 silly gunzTarPerm extractEntry test.js
+643 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+644 silly gunzTarPerm extractEntry test.js
+645 silly gunzTarPerm modified mode [ 'test.js', 420, 438 ]
+646 silly gunzTarPerm extractEntry float.patch
+647 silly gunzTarPerm modified mode [ 'float.patch', 420, 438 ]
+648 verbose request uri https://registry.npmjs.org/bindings
+649 verbose request no auth needed
+650 info attempt registry request try #1 at 3:58:27 PM
+651 verbose etag "1LLBF9OH58DLBEL4629U6032D"
+652 http request GET https://registry.npmjs.org/bindings
+653 verbose request uri https://registry.npmjs.org/nan
+654 verbose request no auth needed
+655 info attempt registry request try #1 at 3:58:27 PM
+656 verbose etag "9GNMF0K57Y4H80QS1L4U9QND9"
+657 http request GET https://registry.npmjs.org/nan
+658 silly gunzTarPerm extractEntry lib/util.js
+659 silly gunzTarPerm modified mode [ 'lib/util.js', 420, 438 ]
+660 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray\package.json
+661 info preinstall isarray@0.0.1
+662 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray\package.json
+663 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits\package.json
+664 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder\package.json
+665 info preinstall string_decoder@0.10.31
+666 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray\package.json
+667 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is\package.json
+668 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder\package.json
+669 info preinstall inherits@2.0.1
+670 info preinstall core-util-is@1.0.2
+671 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits\package.json
+672 silly install resolved []
+673 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+674 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+675 http 304 https://registry.npmjs.org/bindings
+676 verbose headers { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+676 verbose headers   via: '1.1 varnish',
+676 verbose headers   'cache-control': 'max-age=300',
+676 verbose headers   etag: '"1LLBF9OH58DLBEL4629U6032D"',
+676 verbose headers   age: '20',
+676 verbose headers   connection: 'keep-alive',
+676 verbose headers   'x-served-by': 'cache-atl6238-ATL',
+676 verbose headers   'x-cache': 'HIT',
+676 verbose headers   'x-cache-hits': '2',
+676 verbose headers   'x-timer': 'S1457643507.421384,VS0,VE0',
+676 verbose headers   vary: 'Accept' }
+677 silly get cb [ 304,
+677 silly get   { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+677 silly get     via: '1.1 varnish',
+677 silly get     'cache-control': 'max-age=300',
+677 silly get     etag: '"1LLBF9OH58DLBEL4629U6032D"',
+677 silly get     age: '20',
+677 silly get     connection: 'keep-alive',
+677 silly get     'x-served-by': 'cache-atl6238-ATL',
+677 silly get     'x-cache': 'HIT',
+677 silly get     'x-cache-hits': '2',
+677 silly get     'x-timer': 'S1457643507.421384,VS0,VE0',
+677 silly get     vary: 'Accept' } ]
+678 verbose etag https://registry.npmjs.org/bindings from cache
+679 verbose get saving bindings to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\bindings\.cache.json
+680 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+681 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is\package.json
+682 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder\package.json
+683 info linkStuff isarray@0.0.1
+684 silly linkStuff isarray@0.0.1 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules as its parent node_modules
+685 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits\package.json
+686 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is\package.json
+687 silly install resolved []
+688 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+689 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+690 http 304 https://registry.npmjs.org/nan
+691 verbose headers { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+691 verbose headers   via: '1.1 varnish',
+691 verbose headers   'cache-control': 'max-age=300',
+691 verbose headers   etag: '"9GNMF0K57Y4H80QS1L4U9QND9"',
+691 verbose headers   age: '2',
+691 verbose headers   connection: 'keep-alive',
+691 verbose headers   'x-served-by': 'cache-atl6246-ATL',
+691 verbose headers   'x-cache': 'HIT',
+691 verbose headers   'x-cache-hits': '1',
+691 verbose headers   'x-timer': 'S1457643507.436854,VS0,VE0',
+691 verbose headers   vary: 'Accept' }
+692 silly get cb [ 304,
+692 silly get   { date: 'Thu, 10 Mar 2016 20:58:27 GMT',
+692 silly get     via: '1.1 varnish',
+692 silly get     'cache-control': 'max-age=300',
+692 silly get     etag: '"9GNMF0K57Y4H80QS1L4U9QND9"',
+692 silly get     age: '2',
+692 silly get     connection: 'keep-alive',
+692 silly get     'x-served-by': 'cache-atl6246-ATL',
+692 silly get     'x-cache': 'HIT',
+692 silly get     'x-cache-hits': '1',
+692 silly get     'x-timer': 'S1457643507.436854,VS0,VE0',
+692 silly get     vary: 'Accept' } ]
+693 verbose etag https://registry.npmjs.org/nan from cache
+694 verbose get saving nan to C:\Users\John\AppData\Roaming\npm-cache\registry.npmjs.org\nan\.cache.json
+695 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+696 silly install resolved []
+697 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+698 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+699 info linkStuff string_decoder@0.10.31
+700 silly linkStuff string_decoder@0.10.31 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules as its parent node_modules
+701 silly install resolved []
+702 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+703 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+704 silly cache afterAdd bindings@1.2.1
+705 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json not in flight; writing
+706 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+707 verbose linkBins isarray@0.0.1
+708 verbose linkMans isarray@0.0.1
+709 verbose rebuildBundles isarray@0.0.1
+710 info linkStuff inherits@2.0.1
+711 silly linkStuff inherits@2.0.1 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules as its parent node_modules
+712 info linkStuff core-util-is@1.0.2
+713 silly linkStuff core-util-is@1.0.2 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules as its parent node_modules
+714 info install isarray@0.0.1
+715 silly addNameRange number 2 { name: 'nan', range: '>=2.0.4 <3.0.0', hasData: true }
+716 silly addNameRange versions [ 'nan',
+716 silly addNameRange   [ '0.3.0-wip',
+716 silly addNameRange     '0.3.0-wip2',
+716 silly addNameRange     '0.3.0',
+716 silly addNameRange     '0.3.1',
+716 silly addNameRange     '0.3.2',
+716 silly addNameRange     '0.4.0',
+716 silly addNameRange     '0.4.1',
+716 silly addNameRange     '0.4.2',
+716 silly addNameRange     '0.4.3',
+716 silly addNameRange     '0.4.4',
+716 silly addNameRange     '0.5.0',
+716 silly addNameRange     '0.5.1',
+716 silly addNameRange     '0.5.2',
+716 silly addNameRange     '0.6.0',
+716 silly addNameRange     '0.7.0',
+716 silly addNameRange     '0.7.1',
+716 silly addNameRange     '0.8.0',
+716 silly addNameRange     '1.0.0',
+716 silly addNameRange     '1.1.0',
+716 silly addNameRange     '1.1.1',
+716 silly addNameRange     '1.1.2',
+716 silly addNameRange     '1.2.0',
+716 silly addNameRange     '1.3.0',
+716 silly addNameRange     '1.4.0',
+716 silly addNameRange     '1.4.1',
+716 silly addNameRange     '1.5.0',
+716 silly addNameRange     '1.4.2',
+716 silly addNameRange     '1.4.3',
+716 silly addNameRange     '1.5.1',
+716 silly addNameRange     '1.5.2',
+716 silly addNameRange     '1.6.0',
+716 silly addNameRange     '1.5.3',
+716 silly addNameRange     '1.6.1',
+716 silly addNameRange     '1.6.2',
+716 silly addNameRange     '1.7.0',
+716 silly addNameRange     '1.8.0',
+716 silly addNameRange     '1.8.1',
+716 silly addNameRange     '1.8.2',
+716 silly addNameRange     '1.8.3',
+716 silly addNameRange     '1.8.4',
+716 silly addNameRange     '1.9.0',
+716 silly addNameRange     '2.0.0',
+716 silly addNameRange     '2.0.1',
+716 silly addNameRange     '2.0.2',
+716 silly addNameRange     '2.0.3',
+716 silly addNameRange     '2.0.4',
+716 silly addNameRange     '2.0.5',
+716 silly addNameRange     '2.0.6',
+716 silly addNameRange     '2.0.7',
+716 silly addNameRange     '2.0.8',
+716 silly addNameRange     '2.0.9',
+716 silly addNameRange     '2.1.0',
+716 silly addNameRange     '2.2.0' ] ]
+717 silly addNamed nan@2.2.0
+718 verbose addNamed "2.2.0" is a plain semver version for nan
+719 info postinstall isarray@0.0.1
+720 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\bindings\1.2.1\package\package.json written
+721 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\isarray-2817f38809704a27.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\isarray
+722 verbose linkBins string_decoder@0.10.31
+723 verbose linkMans string_decoder@0.10.31
+724 verbose rebuildBundles string_decoder@0.10.31
+725 info install string_decoder@0.10.31
+726 silly cache afterAdd nan@2.2.0
+727 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\nan\2.2.0\package\package.json not in flight; writing
+728 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+729 info postinstall string_decoder@0.10.31
+730 verbose linkBins inherits@2.0.1
+731 verbose linkMans inherits@2.0.1
+732 verbose rebuildBundles inherits@2.0.1
+733 verbose linkBins core-util-is@1.0.2
+734 verbose linkMans core-util-is@1.0.2
+735 verbose rebuildBundles core-util-is@1.0.2
+736 info install inherits@2.0.1
+737 info install core-util-is@1.0.2
+738 verbose afterAdd C:\Users\John\AppData\Roaming\npm-cache\nan\2.2.0\package\package.json written
+739 silly install resolved [ { name: 'bindings',
+739 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+739 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+739 silly install resolved     version: '1.2.1',
+739 silly install resolved     author:
+739 silly install resolved      { name: 'Nathan Rajlich',
+739 silly install resolved        email: 'nathan@tootallnate.net',
+739 silly install resolved        url: 'http://tootallnate.net' },
+739 silly install resolved     repository:
+739 silly install resolved      { type: 'git',
+739 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+739 silly install resolved     main: './bindings.js',
+739 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+739 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+739 silly install resolved     license: 'MIT',
+739 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+739 silly install resolved     _id: 'bindings@1.2.1',
+739 silly install resolved     scripts: {},
+739 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+739 silly install resolved     _from: 'bindings@1.2.1',
+739 silly install resolved     _npmVersion: '1.4.14',
+739 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+739 silly install resolved     maintainers: [ [Object], [Object] ],
+739 silly install resolved     dist:
+739 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+739 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+739 silly install resolved     directories: {},
+739 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+739 silly install resolved     readme: 'ERROR: No README data found!' },
+739 silly install resolved   { name: 'nan',
+739 silly install resolved     version: '2.2.0',
+739 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8 -> 4 compatibility',
+739 silly install resolved     main: 'include_dirs.js',
+739 silly install resolved     repository: { type: 'git', url: 'git://github.com/nodejs/nan.git' },
+739 silly install resolved     scripts:
+739 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+739 silly install resolved        'rebuild-tests': 'node-gyp rebuild --msvs_version=2013 --directory test',
+739 silly install resolved        docs: 'doc/.build.sh' },
+739 silly install resolved     contributors:
+739 silly install resolved      [ [Object],
+739 silly install resolved        [Object],
+739 silly install resolved        [Object],
+739 silly install resolved        [Object],
+739 silly install resolved        [Object],
+739 silly install resolved        [Object],
+739 silly install resolved        [Object] ],
+739 silly install resolved     devDependencies:
+739 silly install resolved      { bindings: '~1.2.1',
+739 silly install resolved        commander: '^2.8.1',
+739 silly install resolved        glob: '^5.0.14',
+739 silly install resolved        'node-gyp': '~3.0.1',
+739 silly install resolved        tap: '~0.7.1',
+739 silly install resolved        xtend: '~4.0.0' },
+739 silly install resolved     license: 'MIT',
+739 silly install resolved     bugs: { url: 'https://github.com/nodejs/nan/issues' },
+739 silly install resolved     homepage: 'https://github.com/nodejs/nan#readme',
+739 silly install resolved     _id: 'nan@2.2.0',
+739 silly install resolved     _shasum: '779c07135629503cf6a7b7e6aab33049b3c3853c',
+739 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-2.2.0.tgz',
+739 silly install resolved     _from: 'nan@>=2.0.4 <3.0.0',
+739 silly install resolved     _npmVersion: '3.3.6',
+739 silly install resolved     _nodeVersion: '5.0.0',
+739 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+739 silly install resolved     dist:
+739 silly install resolved      { shasum: '779c07135629503cf6a7b7e6aab33049b3c3853c',
+739 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-2.2.0.tgz' },
+739 silly install resolved     maintainers: [ [Object], [Object] ],
+739 silly install resolved     directories: {},
+739 silly install resolved     readme: 'ERROR: No README data found!' } ]
+740 info install bindings@1.2.1 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+741 info install nan@2.2.0 into C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+742 info installOne bindings@1.2.1
+743 verbose installOne of bindings to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq not in flight; installing
+744 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+745 info installOne nan@2.2.0
+746 verbose installOne of nan to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq not in flight; installing
+747 verbose correctMkdir C:\Users\John\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+748 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\string-decoder-49918f61b7908005.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\string_decoder
+749 info postinstall inherits@2.0.1
+750 info postinstall core-util-is@1.0.2
+751 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\bindings-fcd155dcc5a0b5e9.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+752 verbose lock using C:\Users\John\AppData\Roaming\npm-cache\_locks\nan-e73b89c65ef7cf1e.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+753 silly install write writing bindings 1.2.1 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+754 silly install write writing nan 2.2.0 to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+755 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\inherits-5da950d97f61c518.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\inherits
+756 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\core-util-is-ea677837c9582339.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream\node_modules\core-util-is
+757 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+758 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+759 verbose unbuild node_modules\pg-native\node_modules\libpq\node_modules\bindings
+760 verbose unbuild node_modules\pg-native\node_modules\libpq\node_modules\nan
+761 info linkStuff readable-stream@1.0.31
+762 silly linkStuff readable-stream@1.0.31 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules as its parent node_modules
+763 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings is being purged from base C:\Users\John\Desktop\SurveySite
+764 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+765 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan is being purged from base C:\Users\John\Desktop\SurveySite
+766 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+767 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\bindings\1.2.1\package.tgz
+768 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+769 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings is being purged
+770 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+771 verbose tar unpack C:\Users\John\AppData\Roaming\npm-cache\nan\2.2.0\package.tgz
+772 verbose tar unpacking to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+773 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan is being purged
+774 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+775 silly gunzTarPerm modes [ '777', '666' ]
+776 silly gunzTarPerm modes [ '777', '666' ]
+777 silly gunzTarPerm extractEntry package.json
+778 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+779 silly gunzTarPerm extractEntry package.json
+780 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+781 verbose linkBins readable-stream@1.0.31
+782 verbose linkMans readable-stream@1.0.31
+783 verbose rebuildBundles readable-stream@1.0.31
+784 verbose rebuildBundles [ 'core-util-is', 'inherits', 'isarray', 'string_decoder' ]
+785 info install readable-stream@1.0.31
+786 silly gunzTarPerm extractEntry README.md
+787 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+788 info postinstall readable-stream@1.0.31
+789 silly gunzTarPerm extractEntry README.md
+790 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+791 silly gunzTarPerm extractEntry bindings.js
+792 silly gunzTarPerm modified mode [ 'bindings.js', 420, 438 ]
+793 silly gunzTarPerm extractEntry include_dirs.js
+794 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 438 ]
+795 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\readable-stream-82d4490c7613d75f.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\readable-stream
+796 silly gunzTarPerm extractEntry nan_converters.h
+797 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 438 ]
+798 silly gunzTarPerm extractEntry LICENSE.md
+799 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 438 ]
+800 silly gunzTarPerm extractEntry .dntrc
+801 silly gunzTarPerm modified mode [ '.dntrc', 436, 438 ]
+802 silly gunzTarPerm extractEntry appveyor.yml
+803 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 438 ]
+804 silly gunzTarPerm extractEntry doc/new.md
+805 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 438 ]
+806 silly gunzTarPerm extractEntry doc/.build.sh
+807 silly gunzTarPerm modified mode [ 'doc/.build.sh', 509, 511 ]
+808 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings\package.json
+809 info preinstall bindings@1.2.1
+810 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings\package.json
+811 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings\package.json
+812 silly gunzTarPerm extractEntry doc/buffers.md
+813 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 438 ]
+814 silly gunzTarPerm extractEntry doc/callback.md
+815 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 438 ]
+816 silly install resolved []
+817 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+818 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+819 info linkStuff bindings@1.2.1
+820 silly linkStuff bindings@1.2.1 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules as its parent node_modules
+821 silly gunzTarPerm extractEntry doc/converters.md
+822 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 438 ]
+823 silly gunzTarPerm extractEntry doc/errors.md
+824 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 438 ]
+825 verbose linkBins bindings@1.2.1
+826 verbose linkMans bindings@1.2.1
+827 verbose rebuildBundles bindings@1.2.1
+828 info install bindings@1.2.1
+829 silly gunzTarPerm extractEntry doc/maybe_types.md
+830 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 438 ]
+831 silly gunzTarPerm extractEntry doc/methods.md
+832 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 438 ]
+833 info postinstall bindings@1.2.1
+834 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\bindings-fcd155dcc5a0b5e9.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\bindings
+835 silly gunzTarPerm extractEntry doc/asyncworker.md
+836 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 438 ]
+837 silly gunzTarPerm extractEntry doc/node_misc.md
+838 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 438 ]
+839 silly gunzTarPerm extractEntry doc/object_wrappers.md
+840 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 438 ]
+841 silly gunzTarPerm extractEntry doc/persistent.md
+842 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 438 ]
+843 silly gunzTarPerm extractEntry doc/scopes.md
+844 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 438 ]
+845 silly gunzTarPerm extractEntry doc/script.md
+846 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 438 ]
+847 silly gunzTarPerm extractEntry doc/string_bytes.md
+848 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 438 ]
+849 silly gunzTarPerm extractEntry doc/v8_internals.md
+850 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 438 ]
+851 silly gunzTarPerm extractEntry doc/v8_misc.md
+852 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 438 ]
+853 silly gunzTarPerm extractEntry nan.h
+854 silly gunzTarPerm modified mode [ 'nan.h', 436, 438 ]
+855 silly gunzTarPerm extractEntry nan_callbacks.h
+856 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 438 ]
+857 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+858 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 438 ]
+859 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+860 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 438 ]
+861 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+862 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 438 ]
+863 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+864 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 438 ]
+865 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+866 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 438 ]
+867 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+868 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 438 ]
+869 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+870 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 438 ]
+871 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+872 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 438 ]
+873 silly gunzTarPerm extractEntry nan_new.h
+874 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 438 ]
+875 silly gunzTarPerm extractEntry nan_object_wrap.h
+876 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 438 ]
+877 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+878 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 438 ]
+879 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+880 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 438 ]
+881 silly gunzTarPerm extractEntry nan_string_bytes.h
+882 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 438 ]
+883 silly gunzTarPerm extractEntry nan_typedarray_contents.h
+884 silly gunzTarPerm modified mode [ 'nan_typedarray_contents.h', 436, 438 ]
+885 silly gunzTarPerm extractEntry nan_weak.h
+886 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 438 ]
+887 silly gunzTarPerm extractEntry CHANGELOG.md
+888 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 438 ]
+889 silly gunzTarPerm extractEntry tools/package.json
+890 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 438 ]
+891 silly gunzTarPerm extractEntry tools/README.md
+892 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 438 ]
+893 silly gunzTarPerm extractEntry tools/1to2.js
+894 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 511 ]
+895 verbose write writing to C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan\package.json
+896 info preinstall nan@2.2.0
+897 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan\package.json
+898 verbose readDependencies loading dependencies from C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan\package.json
+899 silly install resolved []
+900 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+901 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+902 info linkStuff nan@2.2.0
+903 silly linkStuff nan@2.2.0 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules as its parent node_modules
+904 verbose linkBins nan@2.2.0
+905 verbose linkMans nan@2.2.0
+906 verbose rebuildBundles nan@2.2.0
+907 info install nan@2.2.0
+908 info postinstall nan@2.2.0
+909 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\nan-e73b89c65ef7cf1e.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq\node_modules\nan
+910 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+911 info build C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+912 info linkStuff libpq@1.8.1
+913 silly linkStuff libpq@1.8.1 has C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules as its parent node_modules
+914 verbose linkBins libpq@1.8.1
+915 verbose linkMans libpq@1.8.1
+916 verbose rebuildBundles libpq@1.8.1
+917 verbose rebuildBundles [ 'bindings', 'nan' ]
+918 info install libpq@1.8.1
+919 verbose unsafe-perm in lifecycle true
+920 info libpq@1.8.1 Failed to exec install script
+921 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\libpq-9c7d184058dcab99.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+922 verbose about to build C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+923 verbose unlock done using C:\Users\John\AppData\Roaming\npm-cache\_locks\pg-native-78707822a8a5766d.lock for C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+924 verbose stack Error: libpq@1.8.1 install: `node-gyp rebuild`
+924 verbose stack Exit status 1
+924 verbose stack     at EventEmitter.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\lifecycle.js:214:16)
+924 verbose stack     at emitTwo (events.js:87:13)
+924 verbose stack     at EventEmitter.emit (events.js:172:7)
+924 verbose stack     at ChildProcess.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+924 verbose stack     at emitTwo (events.js:87:13)
+924 verbose stack     at ChildProcess.emit (events.js:172:7)
+924 verbose stack     at maybeClose (internal/child_process.js:827:16)
+924 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+925 verbose pkgid libpq@1.8.1
+926 verbose cwd C:\Users\John\Desktop\SurveySite
+927 error Windows_NT 6.1.7600
+928 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "i" "pg-native"
+929 error node v4.4.0
+930 error npm  v2.14.20
+931 error code ELIFECYCLE
+932 error libpq@1.8.1 install: `node-gyp rebuild`
+932 error Exit status 1
+933 error Failed at the libpq@1.8.1 install script 'node-gyp rebuild'.
+933 error This is most likely a problem with the libpq package,
+933 error not with npm itself.
+933 error Tell the author that this fails on your system:
+933 error     node-gyp rebuild
+933 error You can get information on how to open an issue for this project with:
+933 error     npm bugs libpq
+933 error Or if that isn't available, you can get their info via:
+933 error
+933 error     npm owner ls libpq
+933 error There is likely additional logging output above.
+934 verbose exit [ 1, true ]
+935 verbose unbuild node_modules\pg-native\node_modules\libpq
+936 info preuninstall libpq@1.8.1
+937 info uninstall libpq@1.8.1
+938 verbose unbuild rmStuff libpq@1.8.1 from C:\Users\John\Desktop\SurveySite\node_modules
+939 verbose unbuild rmStuff in C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules
+940 info postuninstall libpq@1.8.1
+941 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq is being purged from base C:\Users\John\Desktop\SurveySite
+942 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+943 silly vacuum-fs purging C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules\libpq
+944 silly vacuum-fs quitting because other entries in C:\Users\John\Desktop\SurveySite\node_modules\pg-native\node_modules
+945 verbose unbuild node_modules\pg-native
+946 info preuninstall pg-native@1.10.0
+947 info uninstall pg-native@1.10.0
+948 verbose unbuild rmStuff pg-native@1.10.0 from C:\Users\John\Desktop\SurveySite\node_modules
+949 info postuninstall pg-native@1.10.0
+950 silly gentlyRm C:\Users\John\Desktop\SurveySite\node_modules\pg-native is being purged from base C:\Users\John\Desktop\SurveySite
+951 verbose gentlyRm don't care about contents; nuking C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+952 silly vacuum-fs purging C:\Users\John\Desktop\SurveySite\node_modules\pg-native
+953 silly vacuum-fs quitting because other entries in C:\Users\John\Desktop\SurveySite\node_modules
