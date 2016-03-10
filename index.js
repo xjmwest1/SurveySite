@@ -70,7 +70,34 @@ function getRandomQuestion(answeredQuestionIds) {
         
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
-        return getQuestionWithAnswers(questionId);
+        return pg.connect(process.env.DATABASE_URL, function(err, client, done) {    
+          client.query('SELECT * FROM question_table WHERE id=' + questionId, function(err, questionRows) {
+            done();
+            if (err) { 
+              console.error(err);
+              return null;
+            }else {
+
+              if(questionRows.rows.length <= 0) return null;
+
+              question = questionRows.rows[0];
+
+              client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
+                done();
+                if (err) { 
+                  console.error(err); response.send("Invalid question id"); 
+                }else {
+                  question.answers = [];
+                  answerRows.rows.forEach(function(answer) {
+                    question.answers.push(answer);
+                  });
+                  done();
+                  return question;
+                }
+              });
+            }
+          });
+        });
       }
     });
   });
@@ -215,40 +242,6 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   }
   
 });
-
-
-function getQuestionWithAnswers(id) {
-  var question;
-  
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM question_table WHERE id=' + id, function(err, questionRows) {
-      done();
-      if (err) { 
-        console.error(err);
-        return null;
-      }else {
-        
-        if(questionRows.rows.length <= 0) return null;
-        
-        question = questionRows.rows[0];
-        
-        client.query('SELECT * FROM answer_table WHERE question_id=' + id, function(err, answerRows) {
-          done();
-          if (err) { 
-            console.error(err); response.send("Invalid question id"); 
-          }else {
-            question.answers = [];
-            answerRows.rows.forEach(function(answer) {
-              question.answers.push(answer);
-            });
-            done();
-            return question;
-          }
-        });
-      }
-    });
-  });
-}
 
 
 //app.use('/', router);
