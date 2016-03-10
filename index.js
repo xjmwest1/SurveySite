@@ -30,38 +30,47 @@ app.get('/admin/:questionId?', function (request, response) {
         console.error(err); response.send("Error " + err); 
       }else {
         
-        var questionId = request.params.questionId ? request.params.questionId : questionRows.rows[0].id;
+        var questions = questionRows.rows || [];
+        var currentQuestion = null;
         
-        client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
-          done();
-          if (err) { 
-            console.error(err); response.send("Invalid question id"); 
-          }else {
-            
-            var currentQuestion = {};
-            var questionsMap = {};
-            
-            questionRows.rows.forEach(function(question) {
-              questionsMap[question.id] = question;
-            });
-            
-            currentQuestion = questionsMap[questionId] ? questionsMap[questionId] : {};
-            currentQuestion.answers = [];
-            
-            answerRows.rows.forEach(function(answer) {
-              if(answer.question_id == currentQuestion.id) {
-                currentQuestion.answers.push(answer);
-              }
-            });
+        if(questions) {
+          var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
+        
+          client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
+            done();
+            if (err) { 
+              console.error(err); response.send("Invalid question id"); 
+            }else {
 
-            console.log(currentQuestion);
-            
-            response.render('pages/admin', {
-                questions: questionRows.rows,
-                currentQuestion: currentQuestion
-            }); 
-          }
-        });
+              var questionsMap = {};
+
+              questions.forEach(function(question) {
+                questionsMap[question.id] = question;
+              });
+
+              currentQuestion = questionsMap[questionId] ? questionsMap[questionId] : {};
+              currentQuestion.answers = [];
+
+              answerRows.rows.forEach(function(answer) {
+                if(answer.question_id == currentQuestion.id) {
+                  currentQuestion.answers.push(answer);
+                }
+              });
+
+              response.render('pages/admin', {
+                  questions: questions,
+                  currentQuestion: currentQuestion
+              }); 
+            }
+          });
+        }else {
+          response.render('pages/admin', {
+            questions: questions,
+            currentQuestion: currentQuestion
+          }); 
+        }
+        
+        
       }
     });
   });
