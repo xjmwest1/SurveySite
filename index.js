@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 function checkAdmin(request, response, next) {
   if (!request.session.isAdmin) {
-    res.send('You are not authorized to view this page');
+    response.redirect('/login');
   } else {
     next();
   }
