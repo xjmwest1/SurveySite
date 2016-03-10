@@ -231,22 +231,12 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
-  var newQuestion = db.Question.build({
+  var newQuestion = db.Question.create({
     title: questionText,
     submit_date: db.Sequelize.NOW()
+  }).then(function() {
+    console.log('hey');
   });
-  
-  console.log('------------------------');
-  console.log(newQuestion.save);
-  
-  newQuestion.save()
-    /*.error(function(err) {
-      console.log('error');
-    })
-    .success(function() {
-      console.log('success');
-    });*/;
-  
   
   pg.connect(connectionString, function(err, client, done) {
     client.query('INSERT INTO Question(title, submit_date) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
