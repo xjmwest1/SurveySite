@@ -16,12 +16,17 @@
           <div id="questionContainer">
             <%= question.title %>
           </div>
-
-          <ul id="answersContainer">
-            <% question.answers.forEach(function(a) { %>
-              <li class="answer"><%= a.title %></li>
-            <% }); %>
-          </ul>  
+          
+          <form method="post" action="/submitAnswer" id="submitAnswerForm">
+            <input type="text" name="questionId" style="display:none">
+            <ul id="answersContainer">
+              <% question.answers.forEach(function(a) { %>
+                <li class="answer">
+                  <input href="/submitAnswer" type="submit" name="<%= a.title %>">
+                </li>
+              <% }); %>
+            </ul>
+          </form>
         
         <% }else { %>
         
