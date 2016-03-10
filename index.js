@@ -71,7 +71,7 @@ app.post('/login', function (request, response) {
 // LOGOUT PAGE
 
 app.get('/logout', function (request, response) {
-  delete request.session.user_id;
+  delete request.session.isAdmin;
   response.redirect('/index');
 });   
 
