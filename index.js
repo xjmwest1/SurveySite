@@ -46,8 +46,8 @@ function getRandomQuestion(request, response, next) {
 
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
-      done();
       if (err) { 
+        done();
         console.error(err);
         next();
       }else {
@@ -68,36 +68,35 @@ function getRandomQuestion(request, response, next) {
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
         
-        pg.connect(process.env.DATABASE_URL, function(err, client, done) {    
-          client.query('SELECT * FROM question_table WHERE id=' + questionId, function(err, questionRows) {
-            done();
-            if (err) { 
-              console.error(err);
-              next();
-            }else {
+        client.query('SELECT * FROM question_table WHERE id=' + questionId, function(err, questionRows) {
+          done();
+          if (err) { 
+            console.error(err);
+            next();
+          }else {
 
-              if(questionRows.rows.length <= 0) return null;
+            if(questionRows.rows.length <= 0) return null;
 
-              question = questionRows.rows[0];
-              
-              client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
+            question = questionRows.rows[0];
+
+            client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
+              done();
+              if (err) { 
+                console.error(err);
+                next();
+              }else {
                 done();
-                if (err) { 
-                  console.error(err);
-                  next();
-                }else {
-                  done();
-                  question.answers = [];
-                  answerRows.rows.forEach(function(answer) {
-                    question.answers.push(answer);
-                  });
-                  response.locals.question = question;
-                  next();
-                }
-              });
-            }
-          });
+                question.answers = [];
+                answerRows.rows.forEach(function(answer) {
+                  question.answers.push(answer);
+                });
+                response.locals.question = question;
+                next();
+              }
+            });
+          }
         });
+
       }
     });
   });
