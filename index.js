@@ -50,7 +50,6 @@ app.get('/index', function(request, response) {
 
 function getRandomQuestion(answeredQuestionIds) {
   var unansweredQuestionIds = [];
-  var question;
 
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
@@ -69,8 +68,7 @@ function getRandomQuestion(answeredQuestionIds) {
         
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
-        question = getQuestionWithAnswers(questionId);
-        return question;
+        return getQuestionWithAnswers(questionId);
       }
     });
   });
