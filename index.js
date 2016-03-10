@@ -96,7 +96,7 @@ app.post('/newquestion', function (request, response) {
 
         insertedQuestion = questionResults.rows[0];
         answers.forEach(function(answer, index, array) {
-          client.query('INSERT INTO answer_table(title, question_id) values($1, $2)', [answer, insertedQuestion.id], function(err, answerResults) {
+          client.query('INSERT INTO answer_table(title, question_id, count) values($1, $2, 0)', [answer, insertedQuestion.id], function(err, answerResults) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
