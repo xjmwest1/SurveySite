@@ -17,6 +17,9 @@ app.use(cookieSession({
 
 app.set('view engine', 'ejs');
 
+// for local, otherwise use process.env.DATABASE_URL
+var connectionString = 'postgres://lieggxxxnnxmip:d8_rykzOflG4fi6tEj64ynH-At@ec2-54-83-56-31.compute-1.amazonaws.com:5432/dfccnd1s5eo59t';
+
 // CHECK ADMIN MIDDLEWARE
 // ( used for /admin & /newquestion )
 
@@ -44,7 +47,7 @@ function getRandomQuestion(request, response, next) {
   var answeredQuestionIds = request.session.answeredQuestionIds || [];
   var unansweredQuestionIds = [];
 
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       if (err) { 
         done();
@@ -57,13 +60,7 @@ function getRandomQuestion(request, response, next) {
           if(answeredQuestionIds.indexOf(q.id) == -1) {
             unansweredQuestionIds.push(q.id);
           }
-        });
-        
-        console.log('answeredQuestionIds-------------------------');
-        console.log(answeredQuestionIds);
-        console.log('unansweredQuestionIds-------------------------');
-        console.log(unansweredQuestionIds);
-        
+        });        
         
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
@@ -111,7 +108,7 @@ app.post('/submitAnswer', function(request, response) {
   
   if(questionId && selectedAnswerId) {
     
-    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    pg.connect(connectionString, function(err, client, done) {
       client.query('UPDATE answer_table SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
         if (err) { 
           console.error(err); response.send("Error " + err); 
@@ -158,7 +155,9 @@ app.get('/logout', function(request, response) {
 // ADMIN PAGE
 
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  console.log(connectionString);
+  
+  pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
       if (err) { 
@@ -231,7 +230,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(connectionString, function(err, client, done) {
     client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
         return client.rollback_transaction(function() {
