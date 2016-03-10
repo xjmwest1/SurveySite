@@ -278,7 +278,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 });
 
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force: true}).then(function() {
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });  
