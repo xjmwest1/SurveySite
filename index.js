@@ -231,6 +231,11 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
+  console.log('------------------------');
+  console.log(module.exports);
+  console.log('------------------------');
+  console.log(db);
+  
   var newQuestion = db.Question.build({
     title: questionText,
     submit_date: db.Sequelize.NOW()
@@ -246,7 +251,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   
   
   pg.connect(connectionString, function(err, client, done) {
-    client.query('INSERT INTO Question(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
+    client.query('INSERT INTO Question(title, submit_date) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
         return client.rollback_transaction(function() {
           console.log(err);
