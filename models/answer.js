@@ -1,10 +1,10 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Answer = sequelize.define('Answer', {
-    id: DataTypes.INT,
-    question_id: DataTypes.INT,
+    id: DataTypes.INTEGER,
+    question_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    count: DataTypes.INT
+    count: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

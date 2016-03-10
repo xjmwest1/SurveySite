@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define('Question', {
-    id: DataTypes.INT,
+    id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     submit_date: DataTypes.TIMESTAMP
   }, {
