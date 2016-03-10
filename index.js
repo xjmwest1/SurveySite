@@ -64,7 +64,7 @@ function getRandomQuestion(answeredQuestionIds) {
         // get unanswered question ids
         questionRows.rows.forEach(function(q) {
           if(answeredQuestionIds.indexOf(q.id) == -1) {
-            unansweredQuestionIds.push(q);
+            unansweredQuestionIds.push(q.id);
           }
         });
         
@@ -89,13 +89,14 @@ function getRandomQuestion(answeredQuestionIds) {
               client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
                 done();
                 if (err) { 
-                  console.error(err); response.send("Invalid question id"); 
+                  console.error(err);
+                  return null;
                 }else {
+                  done();
                   question.answers = [];
                   answerRows.rows.forEach(function(answer) {
                     question.answers.push(answer);
                   });
-                  done();
                   return question;
                 }
               });
