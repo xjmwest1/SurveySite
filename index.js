@@ -231,15 +231,13 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
-  console.log('------------------------');
-  console.log(module.exports);
-  console.log('------------------------');
-  console.log(db.Question);
-  
   var newQuestion = db.Question.build({
     title: questionText,
     submit_date: db.Sequelize.NOW()
   });
+  
+  console.log('------------------------');
+  console.log(newQuestion);
   
   newQuestion.save()
     .error(function(err) {
