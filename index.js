@@ -4,6 +4,7 @@ var cookieSession = require('cookie-session');
 var app = express();
 var pg = require('pg');
 var db = require('./models');
+var http = require('http');
 
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1);
