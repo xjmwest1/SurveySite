@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-//var router = express.Router();
+var cookieSession = require('cookie-session');
 var app = express();
 var pg = require('pg');
 
@@ -8,8 +8,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-var cookieSession = require('cookie-session');
-app.use(app.router);
 app.use(express.static(__dirname));
 
 app.set('view engine', 'ejs');
