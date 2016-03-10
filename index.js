@@ -107,7 +107,7 @@ function getRandomQuestion(request, response, next) {
 
 app.post('/submitAnswer', function(request, response) {
   var post = request.body;
-  var questionId = post.questionId;
+  var questionId = parseInt(post.questionId);
   var selectedAnswerId = post.selectedAnswer;
   
   if(questionId && selectedAnswerId) {
