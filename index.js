@@ -100,6 +100,20 @@ function getRandomQuestion(request, response, next) {
   });
 }
 
+// SUBMIT ANSWER POST
+
+app.post('/submitAnswer', function(request, response) {
+  var post = request.body;
+  
+  console.log(post);
+  if (post.user === 'john' && post.pass === 'abc123') {
+    request.session.isAdmin = true;
+    response.redirect('/admin');
+  } else {
+    response.redirect('/index');
+  }
+});
+
 // LOGIN PAGE
 
 app.get('/login', function(request, response) {
