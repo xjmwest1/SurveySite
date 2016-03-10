@@ -224,7 +224,8 @@ function getQuestionWithAnswers(id) {
     client.query('SELECT * FROM question_table WHERE id=' + id, function(err, questionRows) {
       done();
       if (err) { 
-        console.error(err); response.send("Error " + err); 
+        console.error(err);
+        return null;
       }else {
         
         if(questionRows.rows.length <= 0) return null;
@@ -232,18 +233,18 @@ function getQuestionWithAnswers(id) {
         question = questionRows.rows[0];
         
         client.query('SELECT * FROM answer_table WHERE question_id=' + id, function(err, answerRows) {
+          done();
+          if (err) { 
+            console.error(err); response.send("Invalid question id"); 
+          }else {
+            question.answers = [];
+            answerRows.rows.forEach(function(answer) {
+              question.answers.push(answer);
+            });
             done();
-            if (err) { 
-              console.error(err); response.send("Invalid question id"); 
-            }else {
-              question.answers = [];
-              answerRows.rows.forEach(function(answer) {
-                question.answers.push(answer);
-              });
-              done();
-              return question;
-            }
-          });
+            return question;
+          }
+        });
       }
     });
   });
