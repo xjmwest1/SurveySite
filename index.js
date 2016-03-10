@@ -21,9 +21,10 @@ app.set('view engine', 'ejs');
 
 function checkAdmin(request, response, next) {
   if (!request.session.isAdmin) {
-    response.render('pages/login', {
+    /*response.render('pages/login', {
       loginAttempted: false
-    }); 
+    }); */
+    response.redirect('/login');
   } else {
     next();
   }
@@ -67,13 +68,17 @@ app.post('/login', function (request, response) {
   }
 });
 
+// LOGOUT PAGE
+
+app.get('/logout', function (request, response) {
+  delete request.session.user_id;
+  response.redirect('/index');
+});   
+
 
 // ADMIN PAGE
 
 app.get('/admin/:questionId?', checkAdmin, function (request, response) {
-  //check login
-  
-  
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
