@@ -237,7 +237,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   });
   
   console.log('------------------------');
-  console.log(newQuestion);
+  console.log(newQuestion.save);
   
   newQuestion.save()
     .error(function(err) {
