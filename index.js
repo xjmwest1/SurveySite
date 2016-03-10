@@ -32,25 +32,16 @@ function checkAdmin(request, response, next) {
 
 // INDEX PAGE
 
-app.get('/', function(request, response) {
-  var question = getRandomQuestion(request.session.answeredQuestionIds || []);
-  
-  response.render('pages/index', {
-    question: question
-  });
+app.get('/', getRandomQuestion, function(request, response) {
+  response.render('pages/index');
 });
 
-app.get('/index', function(request, response) {
-  var question = getRandomQuestion(request.session.answeredQuestionIds || []);
-  
-  console.log(question);
-  
-  response.render('pages/index', {
-    question: question
-  });
+app.get('/index', getRandomQuestion, function(request, response) {
+  response.render('pages/index');
 });
 
-function getRandomQuestion(answeredQuestionIds) {
+function getRandomQuestion(request, response, next) {
+  var answeredQuestionIds = request.session.answeredQuestionIds || [];
   var unansweredQuestionIds = [];
 
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -58,7 +49,7 @@ function getRandomQuestion(answeredQuestionIds) {
       done();
       if (err) { 
         console.error(err);
-        return null;
+        next();
       }else {
         
         // get unanswered question ids
@@ -71,12 +62,12 @@ function getRandomQuestion(answeredQuestionIds) {
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
         
-        return pg.connect(process.env.DATABASE_URL, function(err, client, done) {    
+        pg.connect(process.env.DATABASE_URL, function(err, client, done) {    
           client.query('SELECT * FROM question_table WHERE id=' + questionId, function(err, questionRows) {
             done();
             if (err) { 
               console.error(err);
-              return null;
+              next();
             }else {
 
               if(questionRows.rows.length <= 0) return null;
@@ -84,20 +75,21 @@ function getRandomQuestion(answeredQuestionIds) {
               question = questionRows.rows[0];
               
               console.log('question---------------------------');
-              console.log(questionId);
+              console.log(question);
 
               client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
                 done();
                 if (err) { 
                   console.error(err);
-                  return null;
+                  next();
                 }else {
                   done();
                   question.answers = [];
                   answerRows.rows.forEach(function(answer) {
                     question.answers.push(answer);
                   });
-                  return question;
+                  response.locals.question = question;
+                  next();
                 }
               });
             }
