@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var router = express.Router();
+//var router = express.Router();
 var app = express();
 var pg = require('pg');
 
@@ -10,9 +10,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
-// views is directory for all template files
-//app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
+
+// CHECK ADMIN MIDDLEWARE
+
+function checkAdmin(request, response, next) {
+  if (!request.session.isAdmin) {
+    res.send('You are not authorized to view this page');
+  } else {
+    next();
+  }
+}
+
+/*router.use('/admin', function(request, response, next) {
+  console.log('Request URL:', req.originalUrl);
+  next();
+}, function (req, res, next) {
+  console.log('Request Type:', req.method);
+  next();
+});*/
+
+
+
+// INDEX PAGE
 
 app.get('/', function (request, response) {
   response.render('pages/index'); 
@@ -22,12 +42,28 @@ app.get('/index', function (request, response) {
   response.render('pages/index'); 
 });
 
+// LOGIN PAGE
+
 app.get('/login', function (request, response) {
   response.render('pages/login'); 
 });
 
+app.post('/login', function (request, response) {
+  var post = request.body;
+  if (post.user === 'john' && post.pass === 'abc123') {
+    request.session.isAdmin = true;
+    response.redirect('/admin');
+  } else {
+    response.render('pages/login', {
+      loginAttempted: true
+    }); 
+  }
+});
 
-app.get('/admin/:questionId?', function (request, response) {
+
+// ADMIN PAGE
+
+app.get('/admin/:questionId?', checkAdmin, function (request, response) {
   //check login
   
   
@@ -84,6 +120,8 @@ app.get('/admin/:questionId?', function (request, response) {
   });
 });
 
+// NEW QUESTION PAGE
+
 app.get('/newquestion', function (request, response) {
   response.render('pages/newquestion'); 
 });
@@ -139,6 +177,8 @@ app.post('/newquestion', function (request, response) {
   }
   
 });
+
+
 
 app.use('/', router);
 
