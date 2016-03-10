@@ -228,15 +228,28 @@ app.post('/newquestion', checkAdmin, function(request, response) {
     }
   });
   
-  var insertedQuestion;
   var redirect;
   
   db.Question.create({
     title: questionText,
     submit_date: db.sequelize.fn('now')
   })
-  .then(function(result) {
-    console.log(result);
+  .then(function(insertedQuestion) {
+    
+    var answerObjects = [];
+    answers.forEach(function(answer, index, array) {
+       answerObjects.push({
+         question_id: insertedQuestion.id,
+         title: answer,
+         count: 0
+       });
+    });
+    
+    db.Answer
+      .bulkCreate(answerObjects)
+      .then(function(insertedAnswers) {
+        redirect(insertedQuestion);
+      });
   })
   
   /*pg.connect(connectionString, function(err, client, done) {

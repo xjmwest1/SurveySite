@@ -2,13 +2,11 @@ if (!global.hasOwnProperty('db')) {
   var Sequelize = require('sequelize')
     , sequelize = null
 
-  if (process.env.DATABASE_URL) {
-    // the application is executed on Heroku ... use the postgres database
-    
+  if (process.env.DATABASE_URL) {    
     sequelize = new Sequelize(process.env.DATABASE_URL, {
       logging: false,
       dialectOptions: {
-        ssl: true /* for SSL config since Heroku gives you this out of the box */
+        ssl: true
       },
       dialect: 'postgres'
     });
@@ -25,10 +23,6 @@ if (!global.hasOwnProperty('db')) {
     // add your other models here
   }
 
-  /*
-    Associations can be defined here. E.g. like this:
-    global.db.User.hasMany(global.db.SomethingElse)
-  */
 }
 
 module.exports = global.db
