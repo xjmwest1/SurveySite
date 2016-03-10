@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var app = express();
 var pg = require('pg');
+var db = require('./models');
 var http = require('http');
 
 app.set('port', (process.env.PORT || 5000));
@@ -20,58 +21,6 @@ app.set('view engine', 'ejs');
 
 // for local, otherwise use process.env.DATABASE_URL
 var connectionString = 'postgres://lieggxxxnnxmip:d8_rykzOflG4fi6tEj64ynH-At@ec2-54-83-56-31.compute-1.amazonaws.com:5432/dfccnd1s5eo59t';
-
-
-// DATABASE DETAILS
-
-if (!global.hasOwnProperty('db')) {
-  var Sequelize = require('sequelize')
-    , sequelize = null
-
-  if (process.env.DATABASE_URL) {
-    // the application is executed on Heroku ... use the postgres database
-    sequelize = new Sequelize(process.env.DATABASE_URL, {
-      logging: false,
-      dialectOptions: {
-        ssl: true /* for SSL config since Heroku gives you this out of the box */
-      },
-      omitNull: true
-    });
-  } else {
-    // the application is executed on the local machine ... use mysql
-    sequelize = new Sequelize('SurveySiteDB', 'root', null)
-  }
-
-}
-
-var Answer = sequelize.define('Answer', {
-  id: { type: DataTypes.INTEGER, primaryKey: true},
-  question_id: DataTypes.INTEGER,
-  title: DataTypes.STRING,
-  count: DataTypes.INTEGER
-}, {
-  classMethods: {
-    associate: function(models) {
-      // associations can be defined here
-    }
-  }
-});
-
-var Question = sequelize.define('Question', {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-  title: DataTypes.STRING,
-  submit_date: { type: DataTypes.DATE, defaultValue: sequelize.fn('now')}
-}, {
-  classMethods: {
-    associate: function(models) {
-      // associations can be defined here
-    }
-  }
-});
-
-
-
-
 
 
 // CHECK ADMIN MIDDLEWARE
@@ -282,17 +231,12 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
-  Question
-    .build({
-      title: questionText
-    })
-    .save(['title'])
-    .error(function(row){
-           console.log('could not save the row ' + JSON.stringify(row));
-          })
-     .success(function(row){
-         console.log('successfully saved ' + JSON.stringify(row));
-     });
+  db.Question.create({
+    title: questionText
+  })
+  .then(function(result) {
+    console.log(result);
+  })
   
   /*pg.connect(connectionString, function(err, client, done) {
     client.query('INSERT INTO Question(title, submit_date) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
@@ -333,7 +277,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 });
 
 
-sequelize.sync().then(function() {
+db.sequelize.sync().then(function() {
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });  
