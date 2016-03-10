@@ -4,6 +4,8 @@ if (!global.hasOwnProperty('db')) {
 
   if (process.env.DATABASE_URL) {
     // the application is executed on Heroku ... use the postgres database
+    console.log('here baby-----------------------------------');
+    
     sequelize = new Sequelize(process.env.DATABASE_URL, {
       logging: false,
       dialectOptions: {
