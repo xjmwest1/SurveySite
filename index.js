@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var app = express();
-var pg = require('pg').native;
+var pg = require('pg');
 
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1);
