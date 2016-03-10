@@ -43,6 +43,8 @@ app.get('/', function(request, response) {
 app.get('/index', function(request, response) {
   var question = getRandomQuestion(request.session.answeredQuestionIds || []);
   
+  console.log(question);
+  
   response.render('pages/index', {
     question: question
   });
