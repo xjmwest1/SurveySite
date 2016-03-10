@@ -51,7 +51,7 @@ function getRandomQuestion(request, response, next) {
   var unansweredQuestionIds = [];
 
   pg.connect(connectionString, function(err, client, done) {
-    client.query('SELECT * FROM question_table', function(err, questionRows) {
+    client.query('SELECT * FROM Question', function(err, questionRows) {
       if (err) { 
         done();
         console.error(err);
@@ -68,7 +68,7 @@ function getRandomQuestion(request, response, next) {
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
         
-        client.query('SELECT * FROM question_table WHERE id=' + questionId, function(err, questionRows) {
+        client.query('SELECT * FROM Question WHERE id=' + questionId, function(err, questionRows) {
           done();
           if (err) { 
             console.error(err);
@@ -79,7 +79,7 @@ function getRandomQuestion(request, response, next) {
 
             question = questionRows.rows[0];
 
-            client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
+            client.query('SELECT * FROM Answer WHERE question_id=' + questionId, function(err, answerRows) {
               done();
               if (err) { 
                 console.error(err);
@@ -112,7 +112,7 @@ app.post('/submitAnswer', function(request, response) {
   if(questionId && selectedAnswerId) {
     
     pg.connect(connectionString, function(err, client, done) {
-      client.query('UPDATE answer_table SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
+      client.query('UPDATE Answer SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
         if (err) { 
           console.error(err); response.send("Error " + err); 
         }else {
@@ -159,7 +159,7 @@ app.get('/logout', function(request, response) {
 
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
   pg.connect(connectionString, function(err, client, done) {
-    client.query('SELECT * FROM question_table', function(err, questionRows) {
+    client.query('SELECT * FROM Question', function(err, questionRows) {
       done();
       if (err) { 
         console.error(err); response.send("Error " + err); 
@@ -170,7 +170,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
         if(questions.length > 0) {
           var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
         
-          client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
+          client.query('SELECT * FROM Answer WHERE question_id=' + questionId, function(err, answerRows) {
             done();
             if (err) { 
               console.error(err); response.send("Invalid question id"); 
@@ -246,7 +246,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   
   
   pg.connect(connectionString, function(err, client, done) {
-    client.query('INSERT INTO question_table(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
+    client.query('INSERT INTO Question(title, submit_timestamp) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
         return client.rollback_transaction(function() {
           console.log(err);
@@ -256,7 +256,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 
         insertedQuestion = questionResults.rows[0];
         answers.forEach(function(answer, index, array) {
-          client.query('INSERT INTO answer_table(title, question_id, count) values($1, $2, 0)', [answer, insertedQuestion.id], function(err, answerResults) {
+          client.query('INSERT INTO Answer(title, question_id, count) values($1, $2, 0)', [answer, insertedQuestion.id], function(err, answerResults) {
             if (err) {
               console.log(err); response.send("Error inserting answers"); 
             }
