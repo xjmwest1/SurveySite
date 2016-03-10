@@ -61,7 +61,7 @@ function getRandomQuestion(answeredQuestionIds) {
         
         // get unanswered question ids
         questionRows.rows.forEach(function(q) {
-          if($.inArray(q.id, answeredQuestionIds) == -1) {
+          if(answeredQuestionIds.indexOf(q.id) == -1) {
             unansweredQuestionIds.push(q);
           }
         });
