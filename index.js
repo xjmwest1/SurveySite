@@ -56,7 +56,8 @@ function getRandomQuestion(answeredQuestionIds) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
       if (err) { 
-        console.error(err); response.send("Error " + err); 
+        console.error(err);
+        return null;
       }else {
         
         // get unanswered question ids
