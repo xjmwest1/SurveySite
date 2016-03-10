@@ -119,6 +119,7 @@ ul {
 .formElement > input {
   padding: 5px;
   width: 100%;
+  font-size: 200%;
 }
 
 .formElement > input:focus {
