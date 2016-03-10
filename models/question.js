@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Question = sequelize.define('Question', {
     id: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    submit_date: DataTypes.TIMESTAMP
+    submit_date: DataTypes.DATE
   }, {
     classMethods: {
       associate: function(models) {
