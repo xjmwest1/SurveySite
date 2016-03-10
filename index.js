@@ -232,13 +232,12 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var redirect;
   
   var newQuestion = db.Question.create({
-    title: questionText,
-    submit_date: db.Sequelize.NOW()
+    title: questionText
   }).then(function() {
     console.log('hey');
   });
   
-  pg.connect(connectionString, function(err, client, done) {
+  /*pg.connect(connectionString, function(err, client, done) {
     client.query('INSERT INTO Question(title, submit_date) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
       if (err) {
         return client.rollback_transaction(function() {
@@ -264,7 +263,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 
       }
     });
-  });
+  });*/
   
   redirect = function(question) {  
     if(question) {
