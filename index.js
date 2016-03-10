@@ -21,22 +21,12 @@ app.set('view engine', 'ejs');
 
 function checkAdmin(request, response, next) {
   if (!request.session.isAdmin) {
-    /*response.render('pages/login', {
-      loginAttempted: false
-    }); */
     response.redirect('/login');
   } else {
     next();
   }
 }
 
-/*router.use('/admin', function(request, response, next) {
-  console.log('Request URL:', req.originalUrl);
-  next();
-}, function (req, res, next) {
-  console.log('Request Type:', req.method);
-  next();
-});*/
 
 
 
@@ -134,11 +124,11 @@ app.get('/admin/:questionId?', checkAdmin, function (request, response) {
 
 // NEW QUESTION PAGE
 
-app.get('/newquestion', function (request, response) {
+app.get('/newquestion', checkAdmin, function (request, response) {
   response.render('pages/newquestion'); 
 });
 
-app.post('/newquestion', function (request, response) {  
+app.post('/newquestion', checkAdmin, function (request, response) {  
   var questionText = request.body.question;
   var answers = [];
   
