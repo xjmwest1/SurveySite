@@ -31,11 +31,8 @@ app.get('/admin/:questionId?', function (request, response) {
       }else {
         
         var questions = questionRows.rows;
-        console.log('-----------------------');
-        console.log(questions);
         
-        
-        if(questions) {
+        if(questions.length > 0) {
           var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
         
           client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
@@ -68,7 +65,7 @@ app.get('/admin/:questionId?', function (request, response) {
           });
         }else {
           response.render('pages/admin', {
-            questions: [],
+            questions: questions,
             currentQuestion: null
           }); 
         }
