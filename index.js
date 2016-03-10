@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var app = express();
 var pg = require('pg');
-var db = require('./models');
 var http = require('http');
 
 app.set('port', (process.env.PORT || 5000));
@@ -41,13 +40,6 @@ if (!global.hasOwnProperty('db')) {
   } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('SurveySiteDB', 'root', null)
-  }
-
-  global.db = {
-    Sequelize: Sequelize,
-    sequelize: sequelize,
-    Question: sequelize.import(__dirname + '/question'),
-    Answer: sequelize.import(__dirname + '/answer') 
   }
 
 }
