@@ -180,7 +180,7 @@ app.post('/newquestion', function (request, response) {
 
 
 
-app.use('/', router);
+//app.use('/', router);
 
 app.listen(app.get('port'), function() {
   console.log('SurveySite app is running on port', app.get('port'));
