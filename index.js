@@ -233,7 +233,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   
   var newQuestion = db.Question.build({
     title: questionText,
-    submit_date: db.Sequelize.NOW();
+    submit_date: db.Sequelize.NOW()
   });
   
   newQuestion.save()
