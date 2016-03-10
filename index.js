@@ -23,6 +23,65 @@ app.set('view engine', 'ejs');
 var connectionString = 'postgres://lieggxxxnnxmip:d8_rykzOflG4fi6tEj64ynH-At@ec2-54-83-56-31.compute-1.amazonaws.com:5432/dfccnd1s5eo59t';
 
 
+// DATABASE DETAILS
+
+if (!global.hasOwnProperty('db')) {
+  var Sequelize = require('sequelize')
+    , sequelize = null
+
+  if (process.env.DATABASE_URL) {
+    // the application is executed on Heroku ... use the postgres database
+    sequelize = new Sequelize(process.env.DATABASE_URL, {
+      logging: false,
+      dialectOptions: {
+        ssl: true /* for SSL config since Heroku gives you this out of the box */
+      },
+      omitNull: true
+    });
+  } else {
+    // the application is executed on the local machine ... use mysql
+    sequelize = new Sequelize('SurveySiteDB', 'root', null)
+  }
+
+  global.db = {
+    Sequelize: Sequelize,
+    sequelize: sequelize,
+    Question: sequelize.import(__dirname + '/question'),
+    Answer: sequelize.import(__dirname + '/answer') 
+  }
+
+}
+
+var Answer = sequelize.define('Answer', {
+  id: { type: DataTypes.INTEGER, primaryKey: true},
+  question_id: DataTypes.INTEGER,
+  title: DataTypes.STRING,
+  count: DataTypes.INTEGER
+}, {
+  classMethods: {
+    associate: function(models) {
+      // associations can be defined here
+    }
+  }
+});
+
+var Question = sequelize.define('Question', {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+  title: DataTypes.STRING,
+  submit_date: { type: DataTypes.DATE, defaultValue: sequelize.fn('now')}
+}, {
+  classMethods: {
+    associate: function(models) {
+      // associations can be defined here
+    }
+  }
+});
+
+
+
+
+
+
 // CHECK ADMIN MIDDLEWARE
 // ( used for /admin & /newquestion )
 
@@ -231,7 +290,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
-  db.Question
+  Question
     .build({
       title: questionText
     })
@@ -282,7 +341,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 });
 
 
-db.sequelize.sync().then(function() {
+sequelize.sync().then(function() {
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });  
