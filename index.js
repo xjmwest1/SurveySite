@@ -74,9 +74,6 @@ function getRandomQuestion(request, response, next) {
 
               question = questionRows.rows[0];
               
-              console.log('question---------------------------');
-              console.log(question);
-
               client.query('SELECT * FROM answer_table WHERE question_id=' + questionId, function(err, answerRows) {
                 done();
                 if (err) { 
@@ -105,6 +102,7 @@ function getRandomQuestion(request, response, next) {
 app.post('/submitAnswer', function(request, response) {
   var post = request.body;
   
+  console.log('post---------------------');
   console.log(post);
   if (post.user === 'john' && post.pass === 'abc123') {
     request.session.isAdmin = true;
