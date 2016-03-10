@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Answer = sequelize.define('Answer', {
-    id: DataTypes.SERIAL,
+    id: DataTypes.INT,
     question_id: DataTypes.INT,
     title: DataTypes.STRING,
     count: DataTypes.INT
