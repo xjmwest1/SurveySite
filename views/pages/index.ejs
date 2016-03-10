@@ -18,7 +18,7 @@
           </div>
           
           <form method="post" action="/submitAnswer" id="submitAnswerForm">
-            <input type="text" name="questionId" style="display:none">
+            <input type="text" name="questionId" value="<%= question.id %>" style="display:none">
             <ul id="answersContainer">
               <% question.answers.forEach(function(a) { %>
                 <li class="answer">
