@@ -33,7 +33,9 @@
           </div>
           <ul id="answersAndCountsContainer">
             <% currentQuestion.answers.forEach(function(a) { %>
-              <li class="answerAndCount"><%= a.title %></li>
+              <li class="answerAndCount"><%= a.title %>
+                <span class="count"><%= a.count %></span>
+              </li>
             <% }); %>
           </ul>
         <% } %>
