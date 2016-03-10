@@ -234,7 +234,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   console.log('------------------------');
   console.log(module.exports);
   console.log('------------------------');
-  console.log(db);
+  console.log(db.Question);
   
   var newQuestion = db.Question.build({
     title: questionText,
