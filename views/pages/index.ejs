@@ -22,7 +22,7 @@
             <ul id="answersContainer">
               <% question.answers.forEach(function(a) { %>
                 <li class="answer">
-                  <a value="<%= a.title %>" type="submit" onclick="submitAnswerForm.submit();" name="<%= a.title %>"><%= a.title %></a>
+                  <a value="<%= a.title %>" type="submit" onclick="submitAnswerForm.submit();" name="selectedAnswer" value="<%= a.id %>"><%= a.title %></a>
                 </li>
               <% }); %>
             </ul>
