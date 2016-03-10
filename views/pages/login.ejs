@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+    
+  <body>
+    <div id="container">
+      <div id="topNav">
+        <a href="/index" class="button">Home Page</a>
+      </div>
+      
+      <div id="content">
+        <div id="loginTitle">
+          Login to continue
+        </div>
+            
+        <form method="post" action="/login" id="loginForm">
+          <div class="formElement">
+            <div class="formTitle">User</div>
+            <input type="text" name="user">
+          </div>
+          <div class="formElement">
+            <div class="formTitle">Password</div>
+            <input type="password" name="pass">
+          </div>
+          
+          <div id="errorContainer">
+            User/pass incorrect
+          </div>
+          <div class="centerContainer">
+            <input id="loginButton" type="submit" name="Login" class="button">
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </body>
+
+</html>

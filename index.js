@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var router = express.Router();
 var app = express();
 var pg = require('pg');
 
@@ -21,8 +22,15 @@ app.get('/index', function (request, response) {
   response.render('pages/index'); 
 });
 
+app.get('/login', function (request, response) {
+  response.render('pages/login'); 
+});
+
 
 app.get('/admin/:questionId?', function (request, response) {
+  //check login
+  
+  
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM question_table', function(err, questionRows) {
       done();
@@ -132,6 +140,7 @@ app.post('/newquestion', function (request, response) {
   
 });
 
+app.use('/', router);
 
 app.listen(app.get('port'), function() {
   console.log('SurveySite app is running on port', app.get('port'));
