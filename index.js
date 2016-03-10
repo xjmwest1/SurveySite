@@ -36,7 +36,7 @@ app.get('/', function(request, response) {
   var question = getRandomQuestion(request.session.answeredQuestionIds || []);
   
   response.render('pages/index', {
-    question: question;
+    question: question
   });
 });
 
@@ -44,7 +44,7 @@ app.get('/index', function(request, response) {
   var question = getRandomQuestion(request.session.answeredQuestionIds || []);
   
   response.render('pages/index', {
-    question: question;
+    question: question
   });
 });
 
