@@ -30,8 +30,7 @@ app.get('/admin/:questionId?', function (request, response) {
         console.error(err); response.send("Error " + err); 
       }else {
         
-        var questions = questionRows.rows || [];
-        var currentQuestion = null;
+        var questions = questionRows.rows;
         
         if(questions) {
           var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
@@ -42,6 +41,7 @@ app.get('/admin/:questionId?', function (request, response) {
               console.error(err); response.send("Invalid question id"); 
             }else {
 
+              var currentQuestion = null;
               var questionsMap = {};
 
               questions.forEach(function(question) {
@@ -65,8 +65,8 @@ app.get('/admin/:questionId?', function (request, response) {
           });
         }else {
           response.render('pages/admin', {
-            questions: questions,
-            currentQuestion: currentQuestion
+            questions: [],
+            currentQuestion: null
           }); 
         }
         
