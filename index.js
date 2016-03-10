@@ -101,13 +101,25 @@ function getRandomQuestion(request, response, next) {
 
 app.post('/submitAnswer', function(request, response) {
   var post = request.body;
+  var questionId = post.questionId;
+  var selectedAnswerId = post.selectedAnswer;
   
-  console.log('post---------------------');
-  console.log(post);
-  if (post.user === 'john' && post.pass === 'abc123') {
-    request.session.isAdmin = true;
-    response.redirect('/admin');
-  } else {
+  if(questionId && selectedAnswerId) {
+    
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+      client.query('UPDATE answer_table SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
+        if (err) { 
+          console.error(err); response.send("Error " + err); 
+        }else {
+          // add question to session.answeredQuestionIds
+          if(!request.session.answeredQuestionIds) request.session.answeredQuestionIds = [];
+          request.session.answeredQuestionIds.push(questionId);
+
+          response.redirect('/index');
+        }
+      });
+    });
+  }else {
     response.redirect('/index');
   }
 });
@@ -120,7 +132,7 @@ app.get('/login', function(request, response) {
 
 app.post('/login', function(request, response) {
   var post = request.body;
-  if (post.user === 'john' && post.pass === 'abc123') {
+  if(post.user === 'john' && post.pass === 'abc123') {
     request.session.isAdmin = true;
     response.redirect('/admin');
   } else {
