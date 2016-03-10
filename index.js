@@ -31,6 +31,9 @@ app.get('/admin/:questionId?', function (request, response) {
       }else {
         
         var questions = questionRows.rows;
+        console.log('-----------------------');
+        console.log(questions);
+        
         
         if(questions) {
           var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
