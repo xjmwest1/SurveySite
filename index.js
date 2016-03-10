@@ -231,16 +231,17 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var insertedQuestion;
   var redirect;
   
-  var newQuestion = db.Question.build({
-    title: questionText
-  })
-  .save(['title'])
-  .error(function(row){
-         console.log('could not save the row ' + JSON.stringify(row));
-        })
-   .success(function(row){
-       console.log('successfully saved ' + JSON.stringify(row));
-   });
+  db.Question
+    .build({
+      title: questionText
+    })
+    .save(['title'])
+    .error(function(row){
+           console.log('could not save the row ' + JSON.stringify(row));
+          })
+     .success(function(row){
+         console.log('successfully saved ' + JSON.stringify(row));
+     });
   
   /*pg.connect(connectionString, function(err, client, done) {
     client.query('INSERT INTO Question(title, submit_date) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
