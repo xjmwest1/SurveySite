@@ -240,12 +240,12 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   console.log(newQuestion.save);
   
   newQuestion.save()
-    .error(function(err) {
+    /*.error(function(err) {
       console.log('error');
     })
     .success(function() {
       console.log('success');
-    });
+    });*/;
   
   
   pg.connect(connectionString, function(err, client, done) {
