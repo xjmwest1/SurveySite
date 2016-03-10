@@ -21,7 +21,9 @@ app.set('view engine', 'ejs');
 
 function checkAdmin(request, response, next) {
   if (!request.session.isAdmin) {
-    response.redirect('/login');
+    response.render('pages/login', {
+      loginAttempted: false
+    }); 
   } else {
     next();
   }
