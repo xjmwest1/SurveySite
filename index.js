@@ -233,7 +233,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   db.Question.create({
     title: questionText,
     submit_date: db.sequelize.fn('now')
-  })
+  }, {logging: true})
   .then(function(insertedQuestion) {
     
     var answerObjects = [];
