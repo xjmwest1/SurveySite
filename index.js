@@ -183,7 +183,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
           })
         
       }else {
-        console.error(err); response.send("Error " + err); 
+        console.error("err"); response.send("Error "); 
       }
     });
   
