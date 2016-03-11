@@ -9,10 +9,9 @@ if (!global.hasOwnProperty('db')) {
         ssl: true
       },
       dialect: 'postgres',
-      protocol: 'postgres'
-    },
-    freezeTableName: true
-    );
+      protocol: 'postgres',
+      freezeTableName: true
+    });
   } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('SurveySiteDB', 'root', null)
