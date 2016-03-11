@@ -12,13 +12,6 @@ if (!global.hasOwnProperty('db')) {
       define: { timestamps: false }
     });
     
-    sequelize.query("insert into questions values(DEFAULT, 'question uno')", { type: sequelize.QueryTypes.INSERT})
-  .then(function(users) {
-      console.log('---------------------------');
-      console.log(users);
-    // We don't need spread here, since only the results will be returned for select queries
-  })
-    
   } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('SurveySiteDB', 'root', null)

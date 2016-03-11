@@ -158,7 +158,36 @@ app.get('/logout', function(request, response) {
 // ADMIN PAGE
 
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
-  pg.connect(connectionString, function(err, client, done) {
+  
+  var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
+  db.Question
+    .findById(questionId)
+    .then(function(question) {
+      if(question) {
+        
+        db.Answer
+          .findAll({
+            where: {
+              question_id: questionId
+            }
+          })
+          .then(function(answers) {
+            question.answers = [];
+            answers.forEach(function(answer) {
+              question.answers.push(answer);
+            });
+            response.render('pages/admin', {
+                questions: [],
+                currentQuestion: currentQuestion
+            }); 
+          })
+        
+      }else {
+        console.error(err); response.send("Error " + err); 
+      }
+    });
+  
+  /*pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM questions', function(err, questionRows) {
       done();
       if (err) { 
@@ -208,7 +237,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
         
       }
     });
-  });
+  });*/
 });
 
 // NEW QUESTION PAGE
