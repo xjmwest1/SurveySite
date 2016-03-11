@@ -178,7 +178,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
             });
             response.render('pages/admin', {
                 questions: [],
-                currentQuestion: currentQuestion
+                currentQuestion: question
             }); 
           })
         
