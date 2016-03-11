@@ -12,7 +12,7 @@ if (!global.hasOwnProperty('db')) {
       define: { timestamps: false }
     });
     
-    sequelize.query("insert into Questions values(2, 'question dos')", { type: sequelize.QueryTypes.INSERT})
+    sequelize.query("insert into Questions values(DEFAULT, 'question tres')", { type: sequelize.QueryTypes.INSERT})
   .then(function(users) {
       console.log('---------------------------');
       console.log(users);
