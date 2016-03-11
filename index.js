@@ -231,8 +231,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
   var redirect;
   
   db.Question.create({
-    title: questionText,
-    submit_date: db.sequelize.fn('now')
+    title: questionText
   })
   .then(function(insertedQuestion) {
     
