@@ -10,14 +10,14 @@ How to setup in local:
     CREATE DATABASE IF NOT EXISTS SurveySiteDB;
     use SurveySiteDB;
 
-    DROP TABLE questions; 
+    DROP TABLE IF EXISTS questions; 
     CREATE TABLE IF NOT EXISTS questions
     (
     id serial PRIMARY KEY,
     title text
     );
 
-    DROP TABLE answers; 
+    DROP TABLE IF EXISTS answers; 
     CREATE TABLE IF NOT EXISTS answers
     (
     id serial PRIMARY KEY,
