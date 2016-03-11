@@ -11,6 +11,14 @@ if (!global.hasOwnProperty('db')) {
       dialect: 'postgres',
       define: { timestamps: false }
     });
+    
+    sequelize.query("SELECT * FROM `Questions`", { type: sequelize.QueryTypes.SELECT})
+  .then(function(users) {
+      console.log('---------------------------');
+      console.log(users);
+    // We don't need spread here, since only the results will be returned for select queries
+  })
+    
   } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('SurveySiteDB', 'root', null)
