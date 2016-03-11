@@ -202,7 +202,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
   
   db.Question.all().then(function(questions) {
 
-    if(questions) {
+    if(questions.length > 0) {
     
       var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
       db.Question
