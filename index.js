@@ -55,9 +55,9 @@ function getRandomQuestion(request, response, next) {
     .then(function(idList) {
       var unansweredQuestionIds = [];
       if(idList) {
-        idList.forEach(function(q) {
-          if(answeredQuestionIds.indexOf(q.id) == -1) {
-            unansweredQuestionIds.push(q.id);
+        idList.forEach(function(id) {
+          if(answeredQuestionIds.indexOf(id) == -1) {
+            unansweredQuestionIds.push(id);
           }
         }); 
       }
