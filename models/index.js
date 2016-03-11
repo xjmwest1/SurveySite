@@ -10,6 +10,8 @@ if (!global.hasOwnProperty('db')) {
       },
       dialect: 'postgres',
       protocol: 'postgres'
+    }, {
+      freezeTableName: true
     });
   } else {
     // the application is executed on the local machine ... use mysql
