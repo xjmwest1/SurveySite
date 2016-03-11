@@ -7,6 +7,6 @@ module.exports = function(sequelize, DataTypes) {
     count: DataTypes.INTEGER
   }, {
     tableName: 'answers'
-  }););
+  });
   return Answer;
 };
