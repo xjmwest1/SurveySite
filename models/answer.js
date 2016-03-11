@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     count: DataTypes.INTEGER
   }, {
     tableName: 'answers',
-    define: { timestamps: false }
+    timestamps: false
   });
   return Answer;
 };

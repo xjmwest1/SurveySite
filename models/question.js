@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING
   }, {
     tableName: 'questions',
-    define: { timestamps: false }
+    timestamps: false
   });
   
   return Question;
