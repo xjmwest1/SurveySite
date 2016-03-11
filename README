@@ -1,0 +1,42 @@
+Live Demo: https://guarded-waters-68350.herokuapp.com/
+
+How to setup in local:
+
+1) Open MySQL Workbench and run this script:
+
+    CREATE DATABASE IF NOT EXISTS SurveySiteDB;
+    use SurveySiteDB;
+
+    DROP TABLE questions; 
+    CREATE TABLE IF NOT EXISTS questions
+    (
+    id serial PRIMARY KEY,
+    title text
+    );
+
+    DROP TABLE answers; 
+    CREATE TABLE IF NOT EXISTS answers
+    (
+    id serial PRIMARY KEY,
+    title text,
+    question_id int,
+    count int
+    );
+
+2) Make sure your SQL 'root' password is ''. If not, run MySQL command line:
+  MySQL 5.7.6+
+    $ ALTER USER 'root'@'localhost' IDENTIFIED BY '';
+  MySQL 5.7.5-
+    $ SET PASSWORD FOR 'root'@'localhost' = PASSWORD('');
+
+3) Open command line and navigate to desired location for the project
+4) $ git clone https://github.com/xjmwest1/SurveySite.git
+5) $ cd SurveySite
+6) $ npm install
+7) $ node index.js
+8) open http://localhost:5000/
+
+
+
+
+
