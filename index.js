@@ -159,33 +159,50 @@ app.get('/logout', function(request, response) {
 
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
   
-  var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
-  db.Question
-    .findById(questionId)
-    .then(function(question) {
-      if(question) {
-        
-        db.Answer
-          .findAll({
-            where: {
-              question_id: questionId
-            }
-          })
-          .then(function(answers) {
-            question.answers = [];
-            answers.forEach(function(answer) {
-              question.answers.push(answer);
-            });
-            response.render('pages/admin', {
-                questions: [],
-                currentQuestion: question
-            }); 
-          })
-        
-      }else {
-        console.error("err"); response.send("Error "); 
-      }
-    });
+  db.all().then(function(questions) {
+    
+    console.log('==============================');
+    console.log(questions);
+    
+    if(questions.length > 0) {
+    
+      var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
+      db.Question
+        .findById(questionId)
+        .then(function(question) {
+          if(question) {
+
+            db.Answer
+              .findAll({
+                where: {
+                  question_id: questionId
+                }
+              })
+              .then(function(answers) {
+                question.answers = [];
+                answers.forEach(function(answer) {
+                  question.answers.push(answer);
+                });
+                response.render('pages/admin', {
+                    questions: [],
+                    currentQuestion: question
+                }); 
+              })
+
+          }else {
+            console.error("err"); response.send("Error "); 
+          }
+        });
+    }else {
+      response.render('pages/admin', {
+        questions: questions,
+        currentQuestion: null
+      }); 
+    }
+  });
+  
+  
+  
   
   /*pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM questions', function(err, questionRows) {
