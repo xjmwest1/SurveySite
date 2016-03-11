@@ -90,7 +90,7 @@ function getRandomQuestion(request, response, next) {
       next();
     });
 
-  pg.connect(connectionString, function(err, client, done) {
+  /*pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM questions', function(err, questionRows) {
       if (err) { 
         done();
@@ -139,7 +139,7 @@ function getRandomQuestion(request, response, next) {
 
       }
     });
-  });
+  });*/
 }
 
 // SUBMIT ANSWER POST
