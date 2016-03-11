@@ -111,7 +111,24 @@ app.post('/submitAnswer', function(request, response) {
   
   if(questionId && selectedAnswerId) {
     
-    pg.connect(connectionString, function(err, client, done) {
+    db.Answer.update({
+      count: db.sequelize.literal('count +1')
+    }, {
+      where: {
+        id: selectedAnswerId
+      }
+    })
+    .then(function() {
+      if(!request.session.answeredQuestionIds) request.session.answeredQuestionIds = [];
+      request.session.answeredQuestionIds.push(questionId);
+      
+      response.redirect('/index');
+    });
+  }else {
+    response.redirect('/index');
+  }
+    
+    /*pg.connect(connectionString, function(err, client, done) {
       client.query('UPDATE answers SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
         if (err) { 
           console.error(err); response.send("Error " + err); 
@@ -123,10 +140,8 @@ app.post('/submitAnswer', function(request, response) {
           response.redirect('/index');
         }
       });
-    });
-  }else {
-    response.redirect('/index');
-  }
+    });*/
+  
 });
 
 // LOGIN PAGE
@@ -168,7 +183,6 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
         .findById(questionId)
         .then(function(question) {
           if(question) {
-
             db.Answer
               .findAll({
                 where: {
@@ -197,61 +211,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
       }); 
     }
   });
-  
-  
-  
-  
-  /*pg.connect(connectionString, function(err, client, done) {
-    client.query('SELECT * FROM questions', function(err, questionRows) {
-      done();
-      if (err) { 
-        console.error(err); response.send("Error " + err); 
-      }else {
-        
-        var questions = questionRows.rows;
-        
-        if(questions.length > 0) {
-          var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
-        
-          client.query('SELECT * FROM answers WHERE question_id=' + questionId, function(err, answerRows) {
-            done();
-            if (err) { 
-              console.error(err); response.send("Invalid question id"); 
-            }else {
 
-              var currentQuestion = null;
-              var questionsMap = {};
-
-              questions.forEach(function(question) {
-                questionsMap[question.id] = question;
-              });
-
-              currentQuestion = questionsMap[questionId] ? questionsMap[questionId] : {};
-              currentQuestion.answers = [];
-
-              answerRows.rows.forEach(function(answer) {
-                if(answer.question_id == currentQuestion.id) {
-                  currentQuestion.answers.push(answer);
-                }
-              });
-
-              response.render('pages/admin', {
-                  questions: questions,
-                  currentQuestion: currentQuestion
-              }); 
-            }
-          });
-        }else {
-          response.render('pages/admin', {
-            questions: questions,
-            currentQuestion: null
-          }); 
-        }
-        
-        
-      }
-    });
-  });*/
 });
 
 // NEW QUESTION PAGE
