@@ -54,17 +54,20 @@ function getRandomQuestion(request, response, next) {
     .findAll()
     .then(function(questions) {
       var unansweredQuestionIds = [];
+      console.log('----------------------------------');
+      console.log(answeredQuestionIds);
+    
       questions.forEach(function(q) {
+        console.log('----------------------------------');
+        console.log(q.id);
+        
         if(answeredQuestionIds.indexOf(q.id) == -1) {
           unansweredQuestionIds.push(q.id);
         }
       }); 
       return unansweredQuestionIds;
     })
-    .then(function(unansweredQuestionIds) {
-      console.log('----------------------------------');
-      console.log(unansweredQuestionIds);
-    
+    .then(function(unansweredQuestionIds) {    
       if(unansweredQuestionIds.length > 0) {
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
         return db.Question.findById(questionId)
