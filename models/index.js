@@ -14,7 +14,7 @@ if (!global.hasOwnProperty('db')) {
     
   } else {
     // the application is executed on the local machine ... use mysql
-    sequelize = new Sequelize('SurveySiteDB', 'root', null)
+    sequelize = new Sequelize('surveysitedb', 'root', null)
   }
 
   global.db = {

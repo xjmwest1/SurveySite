@@ -5,6 +5,7 @@ var app = express();
 var pg = require('pg');
 var db = require('./models');
 var http = require('http');
+var mysql = require('mysql');
 
 app.set('port', (process.env.PORT || 5000));
 app.set('trust proxy', 1);
@@ -34,24 +35,6 @@ function checkAdmin(request, response, next) {
   }
 }
 
-// DESTROY SESSION MIDDLEWARE 
-
-function destroySession(request, response, next) {
-  request.session.destroy();
-  console.log('destroy-----------------------');
-  console.log(request.session);
-  next();
-}
-
-// ON STARTUP
-
-app.on('listening', function(request, response) {
-  // server ready to accept connections here
-  console.log('destroy-----------------------');
-  request.session.destroy();
-});
-
-
 
 // INDEX PAGE
 
@@ -71,13 +54,8 @@ function getRandomQuestion(request, response, next) {
     .findAll()
     .then(function(questions) {
       var unansweredQuestionIds = [];
-      console.log('----------------------------------');
-      console.log(answeredQuestionIds);
     
-      questions.forEach(function(q) {
-        console.log('----------------------------------');
-        console.log(q.id);
-        
+      questions.forEach(function(q) {        
         if(answeredQuestionIds.indexOf(q.id) == -1) {
           unansweredQuestionIds.push(q.id);
         }
@@ -110,57 +88,6 @@ function getRandomQuestion(request, response, next) {
       response.locals.question = question;
       next();
     });
-
-  /*pg.connect(connectionString, function(err, client, done) {
-    client.query('SELECT * FROM questions', function(err, questionRows) {
-      if (err) { 
-        done();
-        console.error(err);
-        next();
-      }else {
-        
-        // get unanswered question ids
-        questionRows.rows.forEach(function(q) {
-          if(answeredQuestionIds.indexOf(q.id) == -1) {
-            unansweredQuestionIds.push(q.id);
-          }
-        });        
-        
-        // pick random unanswered question
-        var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
-        
-        client.query('SELECT * FROM questions WHERE id=' + questionId, function(err, questionRows) {
-          done();
-          if (err) { 
-            console.error(err);
-            next();
-          }else {
-
-            if(questionRows.rows.length <= 0) return null;
-
-            question = questionRows.rows[0];
-
-            client.query('SELECT * FROM answers WHERE question_id=' + questionId, function(err, answerRows) {
-              done();
-              if (err) { 
-                console.error(err);
-                next();
-              }else {
-                done();
-                question.answers = [];
-                answerRows.rows.forEach(function(answer) {
-                  question.answers.push(answer);
-                });
-                response.locals.question = question;
-                next();
-              }
-            });
-          }
-        });
-
-      }
-    });
-  });*/
 }
 
 // SUBMIT ANSWER POST
@@ -299,35 +226,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
       .then(function(insertedAnswers) {
         redirect(insertedQuestion);
       });
-  })
-  
-  /*pg.connect(connectionString, function(err, client, done) {
-    client.query('INSERT INTO Question(title, submit_date) values($1, current_timestamp) RETURNING id', [questionText], function(err, questionResults) {
-      if (err) {
-        return client.rollback_transaction(function() {
-          console.log(err);
-          response.send("Error inserting question"); 
-        });
-      } else {
-
-        insertedQuestion = questionResults.rows[0];
-        answers.forEach(function(answer, index, array) {
-          client.query('INSERT INTO Answer(title, question_id, count) values($1, $2, 0)', [answer, insertedQuestion.id], function(err, answerResults) {
-            if (err) {
-              console.log(err); response.send("Error inserting answers"); 
-            }
-            
-            // if last query close connection and redirect to admin page
-            if(index + 1 === array.length) {
-              done();
-              redirect(insertedQuestion);
-            } 
-          });
-        });
-
-      }
-    });
-  });*/
+  });
   
   redirect = function(question) {  
     if(question) {
@@ -341,7 +240,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 
 
 db.sequelize.sync().then(function() {
-  http.createServer(app).listen(app.get('port'), destroySession, function(){
+  http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));    
   });  
 });
