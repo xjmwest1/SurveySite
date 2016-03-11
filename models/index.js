@@ -8,8 +8,7 @@ if (!global.hasOwnProperty('db')) {
       dialectOptions: {
         ssl: true
       },
-      dialect: 'postgres',
-      protocol: 'postgres'
+      dialect: 'postgres'
     });
   } else {
     // the application is executed on the local machine ... use mysql
