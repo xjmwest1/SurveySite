@@ -159,7 +159,7 @@ app.get('/logout', function(request, response) {
 
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
   
-  db.all().then(function(questions) {
+  db.Question.all().then(function(questions) {
     
     console.log('==============================');
     console.log(questions);
