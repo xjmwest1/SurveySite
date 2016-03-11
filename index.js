@@ -45,9 +45,10 @@ function destroySession(request, response, next) {
 
 // ON STARTUP
 
-app.on('listening', destroySession, function(request, response) {
-    // server ready to accept connections here
-  
+app.on('listening', function(request, response) {
+  // server ready to accept connections here
+  console.log('destroy-----------------------');
+  request.session.destroy();
 });
 
 
