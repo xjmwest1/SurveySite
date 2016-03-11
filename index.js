@@ -48,7 +48,47 @@ app.get('/index', getRandomQuestion, function(request, response) {
 
 function getRandomQuestion(request, response, next) {
   var answeredQuestionIds = request.session.answeredQuestionIds || [];
-  var unansweredQuestionIds = [];
+  
+  
+  db.Question
+    .findAll({attributes: ['id']})
+    .then(function(idList) {
+      var unansweredQuestionIds = [];
+      if(idList) {
+        idList.forEach(function(q) {
+          if(answeredQuestionIds.indexOf(q.id) == -1) {
+            unansweredQuestionIds.push(q.id);
+          }
+        }); 
+      }
+      return unansweredQuestionIds;
+    })
+    .then(function(unansweredQuestionIds) {
+      if(unansweredQuestionIds.length > 0) {
+        var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
+        return db.Question.findById(questionId)
+          .then(function(question) {
+            return db.Answer.findAll({
+              where: {
+                question_id: questionId
+              }
+            })
+            .then(function(answers) {
+              question.answers = [];
+              answers.forEach(function(answer) {
+                question.answers.push(answer);
+              });
+              return question;      
+            })
+          })
+      }else {
+        return null;
+      }
+    })
+    .then(function(question) {
+      response.locals.question = question;
+      next();
+    });
 
   pg.connect(connectionString, function(err, client, done) {
     client.query('SELECT * FROM questions', function(err, questionRows) {
@@ -127,20 +167,6 @@ app.post('/submitAnswer', function(request, response) {
   }else {
     response.redirect('/index');
   }
-    
-    /*pg.connect(connectionString, function(err, client, done) {
-      client.query('UPDATE answers SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
-        if (err) { 
-          console.error(err); response.send("Error " + err); 
-        }else {
-          // add question to session.answeredQuestionIds
-          if(!request.session.answeredQuestionIds) request.session.answeredQuestionIds = [];
-          request.session.answeredQuestionIds.push(questionId);
-
-          response.redirect('/index');
-        }
-      });
-    });*/
   
 });
 
