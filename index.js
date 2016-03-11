@@ -38,6 +38,8 @@ function checkAdmin(request, response, next) {
 
 function destroySession(request, response, next) {
   request.session.destroy();
+  console.log('destroy-----------------------');
+  console.log(request.session);
   next();
 }
 
@@ -45,8 +47,7 @@ function destroySession(request, response, next) {
 
 app.on('listening', destroySession, function(request, response) {
     // server ready to accept connections here
-  console.log('destroy-----------------------');
-  console.log(request.session);
+  
 });
 
 
@@ -338,7 +339,7 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 });
 
 
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync().then(function() {
   http.createServer(app).listen(app.get('port'), destroySession, function(){
     console.log('Express server listening on port ' + app.get('port'));    
   });  
