@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title: DataTypes.STRING
   }, {
-    tableName: 'questions'
+    tableName: 'questions',
+    define: { timestamps: false }
   });
   
   return Question;
