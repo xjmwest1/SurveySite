@@ -4,15 +4,15 @@ if (!global.hasOwnProperty('db')) {
 
   if (process.env.DATABASE_URL) {    
     sequelize = new Sequelize(process.env.DATABASE_URL, {
-      logging: false,
+      logging: true,
       dialectOptions: {
         ssl: true
       },
       dialect: 'postgres',
       protocol: 'postgres'
-    }, {
-      freezeTableName: true
-    });
+    },
+    freezeTableName: true
+    );
   } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('SurveySiteDB', 'root', null)
