@@ -160,11 +160,8 @@ app.get('/logout', function(request, response) {
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
   
   db.Question.all().then(function(questions) {
-    
-    console.log('==============================');
-    console.log(questions);
-    
-    if(questions.length > 0) {
+
+    if(questions) {
     
       var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
       db.Question
@@ -184,7 +181,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
                   question.answers.push(answer);
                 });
                 response.render('pages/admin', {
-                    questions: [],
+                    questions: questions,
                     currentQuestion: question
                 }); 
               })
