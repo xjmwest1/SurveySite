@@ -51,13 +51,13 @@ function getRandomQuestion(request, response, next) {
   
   
   db.Question
-    .findAll({attributes: ['id']})
-    .then(function(idList) {
+    .findAll()
+    .then(function(questions) {
       var unansweredQuestionIds = [];
-      if(idList) {
-        idList.forEach(function(id) {
-          if(answeredQuestionIds.indexOf(id) == -1) {
-            unansweredQuestionIds.push(id);
+      if(questions.length > 0) {
+        questions.forEach(function(q) {
+          if(answeredQuestionIds.indexOf(q.id) == -1) {
+            unansweredQuestionIds.push(q.id);
           }
         }); 
       }
