@@ -5,6 +5,8 @@ module.exports = function(sequelize, DataTypes) {
     question_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     count: DataTypes.INTEGER
-  });
+  }, {
+    tableName: 'answers'
+  }););
   return Answer;
 };

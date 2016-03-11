@@ -51,7 +51,7 @@ function getRandomQuestion(request, response, next) {
   var unansweredQuestionIds = [];
 
   pg.connect(connectionString, function(err, client, done) {
-    client.query('SELECT * FROM Questions', function(err, questionRows) {
+    client.query('SELECT * FROM questions', function(err, questionRows) {
       if (err) { 
         done();
         console.error(err);
@@ -68,7 +68,7 @@ function getRandomQuestion(request, response, next) {
         // pick random unanswered question
         var questionId = unansweredQuestionIds[Math.floor(Math.random() * unansweredQuestionIds.length)];
         
-        client.query('SELECT * FROM Questions WHERE id=' + questionId, function(err, questionRows) {
+        client.query('SELECT * FROM questions WHERE id=' + questionId, function(err, questionRows) {
           done();
           if (err) { 
             console.error(err);
@@ -79,7 +79,7 @@ function getRandomQuestion(request, response, next) {
 
             question = questionRows.rows[0];
 
-            client.query('SELECT * FROM Answers WHERE question_id=' + questionId, function(err, answerRows) {
+            client.query('SELECT * FROM answers WHERE question_id=' + questionId, function(err, answerRows) {
               done();
               if (err) { 
                 console.error(err);
@@ -112,7 +112,7 @@ app.post('/submitAnswer', function(request, response) {
   if(questionId && selectedAnswerId) {
     
     pg.connect(connectionString, function(err, client, done) {
-      client.query('UPDATE Answers SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
+      client.query('UPDATE answers SET count = count + 1 WHERE id=' + selectedAnswerId, function(err, questionRows) {
         if (err) { 
           console.error(err); response.send("Error " + err); 
         }else {
@@ -159,7 +159,7 @@ app.get('/logout', function(request, response) {
 
 app.get('/admin/:questionId?', checkAdmin, function(request, response) {  
   pg.connect(connectionString, function(err, client, done) {
-    client.query('SELECT * FROM Questions', function(err, questionRows) {
+    client.query('SELECT * FROM questions', function(err, questionRows) {
       done();
       if (err) { 
         console.error(err); response.send("Error " + err); 
@@ -170,7 +170,7 @@ app.get('/admin/:questionId?', checkAdmin, function(request, response) {
         if(questions.length > 0) {
           var questionId = request.params.questionId ? request.params.questionId : questions[0].id;
         
-          client.query('SELECT * FROM Answers WHERE question_id=' + questionId, function(err, answerRows) {
+          client.query('SELECT * FROM answers WHERE question_id=' + questionId, function(err, answerRows) {
             done();
             if (err) { 
               console.error(err); response.send("Invalid question id"); 
