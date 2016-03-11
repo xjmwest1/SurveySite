@@ -34,6 +34,19 @@ function checkAdmin(request, response, next) {
   }
 }
 
+// DESTROY SESSION MIDDLEWARE 
+
+function destroySession(request, response, next) {
+  request.session.destroy();
+  next();
+}
+
+// ON STARTUP
+
+app.on('listening', destroySession, function () {
+    // server ready to accept connections here
+});
+
 
 
 // INDEX PAGE
@@ -326,8 +339,10 @@ app.post('/newquestion', checkAdmin, function(request, response) {
 db.sequelize.sync({force: true}).then(function() {
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
+    
   });  
 });
+
 
 
 
